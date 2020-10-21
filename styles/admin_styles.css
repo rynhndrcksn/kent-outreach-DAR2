@@ -43,6 +43,14 @@ form.login {
     text-decoration: none!important;
 }
 
+.link#complete-form {
+    color: white;
+}
+
+.link#complete-form:hover {
+    color: lightgray;
+}
+
 .copyright-text {
     color: #636a71;
 }
