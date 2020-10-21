@@ -18,5 +18,5 @@ Client requested a website for his outreach program based in Kent, WA. Client wa
 * Bootstrap 4
 * JavaScript
 * PHP 7
-* MySQL 8
+* MySQL - MariaDB 10
 * IDE: PHPStorm
