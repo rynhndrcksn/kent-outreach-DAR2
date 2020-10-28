@@ -14,23 +14,25 @@
 <!--##################    NAVBAR    ##################-->
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="https://dar2.greenriverdev.com/index.html">St. James Episcopal Church</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+    <a class="navbar-brand" href="#">St. James Episcopal Church</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-	<div class="collapse navbar-collapse" id="navbarToggler">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item ml-auto">
-			</li>
-			<li class="nav-item ml-auto">
-				<a class="nav-link font-weight-bold" href="#services">Services</a>
-			</li>
-			<li class="nav-item ml-auto">
-				<a class="nav-link font-weight-bold" href="#contact">Contact Us</a>
-			</li>
-		</ul>
-	</div>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-auto">
+                <a class="nav-link font-weight-bold" href="#about">About Us<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link font-weight-bold" href="#services">Services</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link font-weight-bold" href="#contact">Contact Us</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <!--##################    ADMIN LOGIN SECTION    ##################-->
@@ -65,7 +67,7 @@
     <!--  Top Row  -->
     <div class="top-container row row-cols-1 row-cols-md-3 row-cols-lg-3 justify-content-center text-center mx-auto  pt-3">
         <!--  Left Column  -->
-        <div class="col-md-4 col-sm-4">
+        <div class="col">
             <a class="taber text-uppercase" data-toggle="collapse" data-parent="#accordion"
                href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 Address
@@ -74,13 +76,18 @@
                 <ul class="content">
                     <li> 24447 94th Ave. S Kent, WA 98030</li>
                     <li>
-                        <a  href="https://www.google.com/maps/place/Kent+United+Methodist+Church/@47.3812599,-122.1959829,17z/data=!3m1!4b1!4m5!3m4!1s0x54905ebc0b46ab53:0x33d17e86b365ff01!8m2!3d47.3812599!4d-122.1937942"
-                            target="_blank"><img class="footer-map" src="images/churchMap.png"
-                                                 alt="map of St. James Episcopal Church"></a></li>
+                        <div class="footer-map">
+                            <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21612.300265181882!2d-122.21637999999999!3d47.381944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7ccb983935a7c111!2sSt.%20James%20Episcopal%20Church!5e0!3m2!1sen!2sus!4v1602951782510!5m2!1sen!2sus"
+                                    width="600" height="450" style="border:0;" allowfullscreen=""
+                                    aria-hidden="false" tabindex="0" class="gmap-footer"></iframe>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-4">
+        <div class="col">
+
             <a class="taber text-uppercase" data-toggle="collapse" data-parent="#accordion"
                href="#collapsetwo" aria-expanded="false" aria-controls="collapseOne">
                 Hours
@@ -93,7 +100,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-4">
+        <div class="col-md-4 col-lg-3">
             <a class="taber text-uppercase" data-toggle="collapse" data-parent="#accordion"
                href="#collapsethree" aria-expanded="false" aria-controls="collapseOne">
                 Contact Us

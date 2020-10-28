@@ -76,7 +76,10 @@ legend#resources {
     width: 15%!important;
 }
 
-
+/***** Request Button Styles *****/
+input.submit:hover {
+    background-color: #a10909!important;
+}
 
 /***** Footer Styles *****/
 
