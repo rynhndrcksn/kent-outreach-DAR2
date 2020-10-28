@@ -58,7 +58,7 @@ h1.text-block {
 
 /***** Services Section Styles ******/
 .service-card {
-    max-width: 528px;!important;
+    max-width: 200px;!important;
 }
 
 ol#qualification-items {
