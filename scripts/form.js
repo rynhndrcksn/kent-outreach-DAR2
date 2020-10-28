@@ -1,18 +1,4 @@
 
-
-let formZip = document.getElementById("zip").value;
-if (formZip !== "zipNotListed" || formZip !== "none") {
-	showForms();
-}
-
-function showForms() {
-	let contactInfo = document.getElementById("contactInfoDiv");
-	let services = document.getElementById("servicesDiv");
-	contactInfo.classList.remove("d-none");
-	services.classList.remove("d-none");
-}
-
-
 //hide address section if no permanent residence
 document.getElementById("permRes").onclick = hideAddress;
 
@@ -30,6 +16,18 @@ function hideAddress() {
 
 //validate form fields
 document.getElementById("form-main").onsubmit = validate;
+
+/*let formZip = document.getElementById("zip").value;
+if (formZip !== "zipNotListed" || formZip !== "none") {
+    showForms();
+}
+
+function showForms() {
+    let contactInfo = document.getElementById("contactInfoDiv");
+    let services = document.getElementById("servicesDiv");
+    contactInfo.classList.remove("d-none");
+    services.classList.remove("d-none");
+}*/
 
 
 // make all error messages invisible again
@@ -111,5 +109,3 @@ function validate() {
 
 	return isValid;
 }
-
-

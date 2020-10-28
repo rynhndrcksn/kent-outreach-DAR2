@@ -1,3 +1,4 @@
+
 /*Footer Collapse*/
 $(document).ready(function() {
 
