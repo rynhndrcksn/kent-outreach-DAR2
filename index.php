@@ -132,7 +132,7 @@
         for the week. Please try again next Monday beginning at 1pm.</p>
 
     <!-- beginning of form -->
-    <form id="form-main" method="post" action="email.php">
+    <form class="" id="form-main" method="post" action="email.php">
         <fieldset class="form-group border p-2">
             <legend class="text-center font-weight-bold">Request assistance</legend>
 
