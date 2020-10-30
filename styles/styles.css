@@ -42,7 +42,7 @@ legend {
 
 /***** Header Styles ******/
 h1.text-block {
-        text-align: center;
+    text-align: center;
     font-size: 5em;
     color: rgb(164, 7, 7);
     background-image: url(../images/outreach.jpg);
@@ -58,7 +58,11 @@ h1.text-block {
 
 /***** Services Section Styles ******/
 .service-card {
-    max-width: 200px;!important;
+    max-width: 500px;!important;
+}
+
+.service-icon {
+    max-height: 150px;!important;
 }
 
 ol#qualification-items {
@@ -66,7 +70,6 @@ ol#qualification-items {
     margin-right: auto;
     width: 22em;
 }
-
 
 /*****Other Resources Styles*****/
 legend#resources {
@@ -82,6 +85,7 @@ legend#resources {
     width: 15%!important;
 }
 
+
 /***** Request Button Styles *****/
 input.submit {
     margin-top: 15px;
@@ -90,6 +94,17 @@ input.submit {
 input.submit:hover {
     background-color: #a10909!important;
 }
+
+/***** Form Submission Page Styles *****/
+.acknowledge-div {
+    max-width: 600px;!important;
+    margin-left: auto;!important;
+    margin-right: auto;!important;
+}
+
+
+
+
 
 /***** Footer Styles *****/
 
@@ -166,7 +181,6 @@ footer ul li,.taber
     }
 
 }
-
 
 
 

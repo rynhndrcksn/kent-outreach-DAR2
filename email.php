@@ -1,86 +1,91 @@
 <?php
-
-include('includes/header.html');
-?>
-
-    <div class="container">
-        <h1>Thank you for your submission, <?php echo $_POST['fname']?>.  We will be in contact
-            soon.</h1>
-    </div>
-
-
+$about_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#about';
+$services_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#services';
+$contact_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#contact';
+$navbar_link = 'http://rrivera.greenriverdev.com/305/kent/index.php';
+$page_title = 'Kent Outreach Program';
+include('includes/header.html'); ?>
 
 <?php
-//Send email
-//function to prevent injection
-
-//get the data from the form
+//Get the form information
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
-$email = $_POST['email']; //<- may be optional
-$phone = $_POST['phone'];
-$zip = $_POST['zip'];
-$city = $_POST['city'];
 $address1 = $_POST['address1'];
 $address2 = $_POST['address2'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$zip = $_POST['zip'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$services = implode(", ",$_POST['services']);
 $comments = $_POST['comments'];
 
-
-
-
-//format the email
+//Send email
 $to = "rrivera@mail.greenriver.edu";
-$email_subject = "Form Submission";
-//$email_body = "<h1>$fname $lname at $email \n\r or Phone:$phone</h1>";
+$subject = "Outreach Service Request";
+$headers = "Name: $fname <myemail@somewhere.com>"; //replace with email variable
 
+//Setup email
+date_default_timezone_set("America/Los_Angeles");
+$timestamp = date("m/d/y h:i a");
+$body = "Submitted : $timestamp\n";
+$body .= "First:  $fname\n";
+$body .= "Last:  $lname\n";
+$body .= "Addr1:  $address1\n";
+$body .= "Addr2:  $address2\n";
+$body .= "City:  $city\n";
+$body .= "State:  $state\n";
+$body .= "Zip:  $zip\n";
+$body .= "Email:  $email\n";
+$body .= "Phone:  $phone\n";
+$body .= "Requested Services:  $services\n";
+$body .= "Comments:  $comments\n";
 
-$email_body = "
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-</style>
-</head>
-<body>
-<table class=\"schedule\" style=\"width: 100%;\">
-            <caption>Kent Outreach Program</caption>
-            <colgroup>
-            	<col span=\"1\" style=\"width: 25%;\"/>
-                <col span=\"3\" style=\";\"/>
-  			</colgroup>
-
-            <thead><tr><th colspan=\"4\" style=\"background-color: lightgray;\">Service Request Submission</th></tr></thead>
-            <tbody>
-               <tr><th>Name:</th><td>$fname $lname</td></tr>
-               <tr><th>Address 1:</th><td>$address1</td></tr>
-               <tr><th>Address 2:</th><td>$address2</td></tr>
-               <tr><th>City:</th><td>$city</td>
-               <tr><th>State:</th><td>$ state</td></tr>
-               <tr><th>Zip:</th><td>$zip</td></tr>
-               <tr><th>Email:</th><td>$email</td></tr>
-               <tr><th>Phone:</th><td>$phone</td></tr>
-               <tr><th colspan=\"2\" style=\"background-color: lightgray;\">Comments:</th></tr>
-               <tr><th colspan=\"2\">$comments</th></tr>
-            </tbody>
-            <tfoot><tr><td colspan=\"4\">Submitted: _______ at ________</td></tr></tfoot>
-         </table>
-
-</body>
-</html>";
-
-
-
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=8\r\n";
-
-mail($to, $email_subject, $email_body, $headers);
-
-
+//Send email to organization mailbox
+//mail($to, $subject, $body, $headers);
 
 ?>
 
-<?php
-include('includes/footer.html');
-?>
+<!--##################    FORM SUBMISSION PAGE    ##################-->
+
+<div class="acknowledge-div pb-5">
+    <div class="jumbotron text-center bg-white">
+        <h1 class="display-4">Submission Accepted</h1>
+        <h3>Thank you <em><? echo $fname." ".$lname ?></em> for your submission.
+            A member of our team will review your information and reach out to
+            you as soon as possible!</h3>
+    </div>
+    <!--  Form Information table  -->
+    <table class="schedule">
+        <colgroup>
+            <col class="w-25" span="1" />
+            <col span="3" />
+        </colgroup>
+        <thead>
+            <tr><th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th></tr>
+        </thead>
+        <tbody>
+            <tr><th class="pb-1 pl-3">Name:</th><td><? echo $fname." ".$lname?></td></tr>
+            <tr><th class="pb-1 pl-3">Address 1:</th><td><? echo $address1?></td></tr>
+            <tr><th class="pb-1 pl-3">Address 2:</th><td><? echo $address2?></td></tr>
+            <tr><th class="pb-1 pl-3">City:</th><td><? echo $city?></td>
+            <tr><th class="pb-1 pl-3">State:</th><td><? echo $state?></td></tr>
+            <tr><th class="pb-1 pl-3">Zip:</th><td><? echo $zip?></td></tr>
+            <tr><th class="pb-1 pl-3">Email:</th><td><? echo $email ?></td></tr>
+            <tr><th class="pb-1 pl-3">Phone:</th><td><? echo $phone ?></td></tr>
+            <tr><th class="pb-1 pl-3">Services Requested:</th><td><? echo $services ?></td></tr>
+            <tr><th class="text-center bg-secondary text-white p-2" colspan="2">Comments:</th></tr>
+            <tr><th class="p-1" colspan="2"><? echo $comments ?></th></tr>
+        </tbody>
+    </table>
+    <!--  Return to main page button  -->
+    <form class="pt-5" action="http://rrivera.greenriverdev.com/305/kent/index.php">
+        <button type="submit" class="btn btn-secondary">Return to main page</button>
+    </form>
+</div>
+
+<!--##################    FOOTER SECTION    ##################-->
+
+<?php include('includes/footer.html'); ?>
+
+
