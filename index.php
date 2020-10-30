@@ -1,4 +1,10 @@
-<?php include('includes/header.html');?>
+<?php
+$about_link = '#about';
+$services_link = '#services';
+$contact_link = '#contact';
+$navbar_link = '#';
+$page_title = 'Kent Outreach Program';
+include('includes/header.html');?>
 
 <!--   Beginning of page specific content   -->
 
@@ -174,7 +180,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" class="form-control" name="state">
                                 <option selected>Choose...</option>
                                 <option selected>WA</option>
                             </select>
