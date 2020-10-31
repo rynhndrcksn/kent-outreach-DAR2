@@ -4,12 +4,14 @@ $services_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#services';
 $contact_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#contact';
 $navbar_link = 'http://rrivera.greenriverdev.com/305/kent/index.php';
 $page_title = 'Kent Outreach Program';
+$page_specific_script = '';
 include('includes/header.html'); ?>
 
 <?php
 //Get the form information
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
+$permRes = $_POST['permRes'];
 $address1 = $_POST['address1'];
 $address2 = $_POST['address2'];
 $city = $_POST['city'];
@@ -31,6 +33,7 @@ $timestamp = date("m/d/y h:i a");
 $body = "Submitted : $timestamp\n";
 $body .= "First:  $fname\n";
 $body .= "Last:  $lname\n";
+
 $body .= "Addr1:  $address1\n";
 $body .= "Addr2:  $address2\n";
 $body .= "City:  $city\n";
@@ -40,6 +43,7 @@ $body .= "Email:  $email\n";
 $body .= "Phone:  $phone\n";
 $body .= "Requested Services:  $services\n";
 $body .= "Comments:  $comments\n";
+
 
 //Send email to organization mailbox
 //mail($to, $subject, $body, $headers);
@@ -51,7 +55,7 @@ $body .= "Comments:  $comments\n";
 <div class="acknowledge-div pb-5">
     <div class="jumbotron text-center bg-white">
         <h1 class="display-4">Submission Accepted</h1>
-        <h3>Thank you <em><? echo $fname." ".$lname ?></em> for your submission.
+        <h3>Thank you <em><? echo $fname." ".$lname ?></em>, for your submission.
             A member of our team will review your information and reach out to
             you as soon as possible!</h3>
     </div>
@@ -62,20 +66,27 @@ $body .= "Comments:  $comments\n";
             <col span="3" />
         </colgroup>
         <thead>
-            <tr><th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th></tr>
+        <tr><th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th></tr>
         </thead>
         <tbody>
-            <tr><th class="pb-1 pl-3">Name:</th><td><? echo $fname." ".$lname?></td></tr>
-            <tr><th class="pb-1 pl-3">Address 1:</th><td><? echo $address1?></td></tr>
-            <tr><th class="pb-1 pl-3">Address 2:</th><td><? echo $address2?></td></tr>
-            <tr><th class="pb-1 pl-3">City:</th><td><? echo $city?></td>
-            <tr><th class="pb-1 pl-3">State:</th><td><? echo $state?></td></tr>
-            <tr><th class="pb-1 pl-3">Zip:</th><td><? echo $zip?></td></tr>
-            <tr><th class="pb-1 pl-3">Email:</th><td><? echo $email ?></td></tr>
-            <tr><th class="pb-1 pl-3">Phone:</th><td><? echo $phone ?></td></tr>
-            <tr><th class="pb-1 pl-3">Services Requested:</th><td><? echo $services ?></td></tr>
-            <tr><th class="text-center bg-secondary text-white p-2" colspan="2">Comments:</th></tr>
-            <tr><th class="p-1" colspan="2"><? echo $comments ?></th></tr>
+        <tr><th class="pb-1 pl-3">Name:</th><td><? echo $fname." ".$lname?></td></tr>
+        <?
+        if($permRes === "on") {
+            echo " <tr><th class=\"pb-1 pl-3\">Address:</th><td>No Permanent Residence</td></tr>";
+        }
+        else{
+            echo " <tr><th class=\"pb-1 pl-3\">Address 1:</th><td>$address1</td></tr>";
+            echo " <tr><th class=\"pb-1 pl-3\">Address 2:</th><td>$address2</td></tr>";
+            echo " <tr><th class=\"pb-1 pl-3\">City:</th><td>$city</td>";
+            echo " <tr><th class=\"pb-1 pl-3\">State:</th><td>$state</td></tr>";
+            echo " <tr><th class=\"pb-1 pl-3\">Zip:</th><td>$zip</td></tr>";
+        }
+        ?>
+        <tr><th class="pb-1 pl-3">Email:</th><td><? echo $email ?></td></tr>
+        <tr><th class="pb-1 pl-3">Phone:</th><td><? echo $phone ?></td></tr>
+        <tr><th class="pb-1 pl-3">Services Requested:</th><td><? echo $services ?></td></tr>
+        <tr><th class="text-center bg-secondary text-white p-2" colspan="2">Comments:</th></tr>
+        <tr><th class="p-1" colspan="2"><? echo $comments ?></th></tr>
         </tbody>
     </table>
     <!--  Return to main page button  -->

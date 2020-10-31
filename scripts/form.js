@@ -1,4 +1,4 @@
-
+window.onLoad = closeForm();
 //hide address section if no permanent residence
 document.getElementById("permRes").onclick = hideAddress;
 
@@ -13,13 +13,29 @@ function hideAddress() {
 	}
 }
 
-
 //validate form fields
 document.getElementById("form-main").onsubmit = validate;
 
-/*let formZip = document.getElementById("zip").value;
+let formZip = document.getElementById("zip").value;
 if (formZip !== "zipNotListed" || formZip !== "none") {
     showForms();
+}
+
+function closeForm(){
+	let hours = new Date().getHours();
+	let day = new Date().getDay();
+	let form = document.getElementById("form-main");
+
+	if (day === 1 || day === 3){
+		if(hours < 13 || hours > 15){
+			form.classList.add("d-none");
+		}
+	} else if (day === 2){
+		if(hours < 9 || hours > 11){
+			form.classList.add("d-none");
+		}
+	}
+
 }
 
 function showForms() {
@@ -27,7 +43,7 @@ function showForms() {
     let services = document.getElementById("servicesDiv");
     contactInfo.classList.remove("d-none");
     services.classList.remove("d-none");
-}*/
+}
 
 
 // make all error messages invisible again
@@ -108,4 +124,43 @@ function validate() {
 
 
 	return isValid;
+}
+
+// document handlings
+document.getElementById("utilities").onclick = utilDocs;
+document.getElementById("rent").onclick = rentDocs;
+document.getElementById("gas").onclick = gasDocs;
+
+
+function utilDocs() {
+	let checkbox = document.getElementById("utilities");
+	let hide = document.getElementById("utilDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
+}
+
+function rentDocs() {
+	let checkbox = document.getElementById("rent");
+	let hide = document.getElementById("rentDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
+}
+
+function gasDocs() {
+	let checkbox = document.getElementById("gas");
+	let hide = document.getElementById("gasDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
 }
