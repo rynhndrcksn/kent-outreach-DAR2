@@ -26,11 +26,11 @@ function closeForm(){
 	let day = new Date().getDay();
 	let form = document.getElementById("form-main");
 
-	if (day == 1 || day == 3){
+	if (day === 1 || day === 3){
 		if(hours < 13 || hours > 15){
 			form.classList.add("d-none");
 		}
-	} else if (day == 2){
+	} else if (day === 2){
 		if(hours < 9 || hours > 11){
 			form.classList.add("d-none");
 		}
@@ -124,4 +124,43 @@ function validate() {
 
 
 	return isValid;
+}
+
+// document handlings
+document.getElementById("utilities").onclick = utilDocs;
+document.getElementById("rent").onclick = rentDocs;
+document.getElementById("gas").onclick = gasDocs;
+
+
+function utilDocs() {
+	let checkbox = document.getElementById("utilities");
+	let hide = document.getElementById("utilDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
+}
+
+function rentDocs() {
+	let checkbox = document.getElementById("rent");
+	let hide = document.getElementById("rentDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
+}
+
+function gasDocs() {
+	let checkbox = document.getElementById("gas");
+	let hide = document.getElementById("gasDocs")
+	if (checkbox.checked) {
+		hide.classList.remove("d-none");
+	}
+	else {
+		hide.classList.add("d-none");
+	}
 }
