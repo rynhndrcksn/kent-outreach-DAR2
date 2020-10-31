@@ -112,6 +112,27 @@ function validate() {
 		isValid = false;
 	}
 
+	// clicked other checkbox but didn't fill out text area
+	let other = document.getElementById("other");
+	let otherService = document.getElementById("otherService").value;
+	if(other.checked && otherService === "") {
+		let errOther = document.getElementById("err-other");
+		errOther.classList.remove("d-none");
+		isValid = false;
+	}
+
+	// validate at least 1 service is checked
+	let utilities = document.getElementById("utilities");
+	let rent = document.getElementById("rent");
+	let gas = document.getElementById("gas");
+	let household = document.getElementById("household");
+	let wadl = document.getElementById("wadl");
+	let food = document.getElementById("food");
+	if (!utilities.checked && !rent.checked && !gas.checked && !household.checked && !wadl.checked && !food.checked && !other.checked) {
+		let errServices = document.getElementById("err-services");
+		errServices.classList.remove("d-none")
+		isValid = false;
+	}
 
 	//Validate checkbox:
 	let agreement = document.getElementById("agreement");
@@ -126,10 +147,11 @@ function validate() {
 	return isValid;
 }
 
-// document handlings
+// Form - Services - Handling
 document.getElementById("utilities").onclick = utilDocs;
 document.getElementById("rent").onclick = rentDocs;
 document.getElementById("gas").onclick = gasDocs;
+document.getElementById("other").onclick = showOther;
 
 
 function utilDocs() {
@@ -161,6 +183,16 @@ function gasDocs() {
 		hide.classList.remove("d-none");
 	}
 	else {
+		hide.classList.add("d-none");
+	}
+}
+
+function showOther() {
+	let checkbox = document.getElementById("other");
+	let hide = document.getElementById("showOther");
+	if(checkbox.checked) {
+		hide.classList.remove("d-none");
+	} else {
 		hide.classList.add("d-none");
 	}
 }
