@@ -47,6 +47,8 @@ function closeForm(){
 		if(hours < 9 || hours > 11){
 			form.classList.add("d-none");
 		}
+	}else {
+		form.classList.add("d-none");
 	}
 
 }
