@@ -279,9 +279,22 @@ include('includes/header.html');?>
                         Food
                     </label>
                 </div>
+							<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="other" value="other" name="services[]">
+									<label class="form-check-label" for="other">
+										Other:
+									</label>
+								</div>
+								<div class="form-group d-none" id="showOther">
+									<label for="otherService">Please list the other services you are interested in:</label>
+									<textarea class="form-control" id="otherService" name="otherServices" rows="2"></textarea>
+									<span class="text-danger d-none error" id="err-other">*Please fill out what other services you
+										are interested in.</span>
+								</div>
+								<span class="text-danger d-none error" id="err-services">*Please select at least 1 service.</span>
                 <br>
                 <div class="form-group">
-                    <label for="comments">Comments:</label>
+                    <label for="comments">Any additional Comments:</label>
                     <textarea class="form-control" placeholder="Comments..." id="comments" name="comments" rows="3"></textarea>
                 </div>
             </div>
