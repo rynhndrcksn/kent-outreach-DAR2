@@ -131,6 +131,12 @@ include('includes/header.html');?>
     </fieldset>
     <!--##################    FORM SECTION    ##################-->
 
+    <!-- Toggle button to see form -->
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="formOn">
+        <label class="custom-control-label" for="formOn">Form: On/Off</label>
+    </div>
+
     <!-- Notice -->
     <h2 class="text-danger" id="contact">Notice</h2>
     <p>Appointments are made first come first served. Online form is only accessible during business hours.
