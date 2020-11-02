@@ -131,6 +131,12 @@ include('includes/header.html');?>
     </fieldset>
     <!--##################    FORM SECTION    ##################-->
 
+    <!-- Toggle button to see form -->
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="formOn">
+        <label class="custom-control-label" for="formOn">Form: On/Off</label>
+    </div>
+
     <!-- Notice -->
     <h2 class="text-danger" id="contact">Notice</h2>
     <p>Appointments are made first come first served. Online form is only accessible during business hours.
@@ -187,7 +193,7 @@ include('includes/header.html');?>
                         </div>
                         <!-- zip code selection -->
                         <div class="form-group col-md-2">
-                            <label>Zip Code</label>
+                            <label for="zip">Zip Code</label>
                             <input type="text" class="form-control" id="zip" placeholder="98031" name="zip">
                             <span class="text-danger d-none error" id="err-zip">*We are sorry to inform you that your zip code is outside the service range</span>
                         </div>
@@ -213,16 +219,17 @@ include('includes/header.html');?>
             <!-- start of service selections -->
             <div id="servicesDiv">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="utilities" value="utilities" name="services[]">
+                    <input class="form-check-input" type="checkbox" id="utilities" value="utilities"
+													 name="services[]">
                     <label class="form-check-label" for="utilities">
                         Utilities (electricity or water)
                     </label>
                 </div>
-                <div class="input-group mb-3 d-none">
+                <div class="input-group mb-3 d-none" id="utilDocs">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="utilitiesFile">
-                        <label class="custom-file-label" for="utilitiesFile">Optional: attach a picture of your current
-                            bill/final notice.</label>
+                        <label class="custom-file-label" for="utilitiesFile">Optional: Bring in or attach a picture of
+													your current bill/final notice.</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
@@ -234,12 +241,11 @@ include('includes/header.html');?>
                         Rent
                     </label>
                 </div>
-                <div class="input-group mb-3 d-none">
+                <div class="input-group mb-3 d-none" id="rentDocs">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="rentFile">
-                        <label class="custom-file-label" for="rentFile">Optional: attach a picture of your eviction
-                            notice
-                            notice.</label>
+                        <label class="custom-file-label" for="rentFile">Optional: Bring in or attach a picture of
+													your eviction notice.</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
@@ -251,11 +257,11 @@ include('includes/header.html');?>
                         Gas
                     </label>
                 </div>
-                <div class="input-group mb-3 d-none">
+                <div class="input-group mb-3 d-none" id="gasDocs">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="gasFile">
-                        <label class="custom-file-label" for="gasFile">Optional: attach a
-                            picture of your Washington State Drivers License</label>
+                        <label class="custom-file-label" for="gasFile">Optional: Bring in or attach a picture of your
+													Washington State Drivers License</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
@@ -279,9 +285,22 @@ include('includes/header.html');?>
                         Food
                     </label>
                 </div>
+							<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="other" value="other" name="services[]">
+									<label class="form-check-label" for="other">
+										Other:
+									</label>
+								</div>
+								<div class="form-group d-none" id="showOther">
+									<label for="otherService">Please list the other services you are interested in:</label>
+									<textarea class="form-control" id="otherService" name="otherServices" rows="2"></textarea>
+									<span class="text-danger d-none error" id="err-other">*Please fill out what other services you
+										are interested in.</span>
+								</div>
+								<span class="text-danger d-none error" id="err-services">*Please select at least 1 service.</span>
                 <br>
                 <div class="form-group">
-                    <label for="comments">Comments:</label>
+                    <label for="comments">Any additional Comments:</label>
                     <textarea class="form-control" placeholder="Comments..." id="comments" name="comments" rows="3"></textarea>
                 </div>
             </div>

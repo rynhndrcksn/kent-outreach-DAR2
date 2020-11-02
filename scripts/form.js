@@ -80,14 +80,12 @@ function validate() {
 
 	//Validate zip code
 	let zip = document.getElementById("zip").value;
-	let noRes = document.getElementById("permRes").checked;
-	if(!noRes){
-		if(!(zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042"))
-		{
-			let errZip = document.getElementById("err-zip");
-			errZip.classList.remove("d-none");
-			isValid = false;
-		}
+	if(zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042")
+		isValid = true;
+	else {
+		let errZip = document.getElementById("err-zip");
+		errZip.classList.remove("d-none");
+		isValid = false;
 	}
 
 	//Validate email:
