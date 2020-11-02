@@ -201,6 +201,7 @@ include('includes/header.html');?>
                 </div>
 
                 <div class="form-group">
+                    <h5 class="font-weight-bold">Please add either an email(preferred) or a phone number:</h5>
                     <label for="email">Email (optional)</label>
                     <input type="email" class="form-control" id="email" name="email"
                            pattern='(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}
