@@ -155,65 +155,74 @@ include('includes/header.html');?>
                 <label><input type="checkbox" id="permRes" name="permRes"> No permanent residence</label>
             </div>
 
-
             <div id="contactInfoDiv">
-                <div class="form-group">
-                    <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname">
-                    <span class="text-danger d-none error" id="err-fname">*Please enter a first name</span>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname">
+                        <span class="text-danger d-none error" id="err-fname">*Please enter a first name</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname">
+                        <span class="text-danger d-none error" id="err-lname">*Please enter a last name</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname">
-                    <span class="text-danger d-none error" id="err-lname">*Please enter a last name</span>
-                </div>
+
 
                 <!-- address  -->
                 <div class="address-field" id="address-section">
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" name="address1" placeholder="1234 Main St">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" name="address2"
-                               placeholder="Apartment, studio, or floor">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2"
+                                   placeholder="Apartment, studio, or floor">
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity" name="city" placeholder="Kent">
+                            <input type="text" class="form-control" id="inputCity" placeholder="Kent">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="inputState" class="form-control" name="state">
+                            <select id="inputState" class="form-control">
                                 <option selected>Choose...</option>
                                 <option selected>WA</option>
                             </select>
                         </div>
                         <!-- zip code selection -->
                         <div class="form-group col-md-2">
-                            <label for="zip">Zip Code</label>
-                            <input type="text" class="form-control" id="zip" placeholder="98031" name="zip">
+                            <label>Zip Code</label>
+                            <input type="text" class="form-control" id="zip" placeholder="98031">
                             <span class="text-danger d-none error" id="err-zip">*We are sorry to inform you that your zip code is outside the service range</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <h5 class="font-weight-bold">Please add either an email(preferred) or a phone number:</h5>
-                    <label for="email">Email (optional)</label>
-                    <input type="email" class="form-control" id="email" name="email"
-                           pattern='(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}
-                               \.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'>
-                    <span class="text-danger d-none error" id="err-email">*Please enter a valid email</span>
-                    <span class="text-danger d-none error" id="err-email-phone">*Please provide either an email address or phone number so that we can get in touch with you. Email is preferred!</span>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number (optional)</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" maxlength="10"
-                           pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$">
-                    <span class="text-danger d-none error" id="err-phone">*Please enter a last name.</span>
+                <br>
+                <h5 class="font-weight-bold">Please add either an email(preferred) or a phone number:</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email (optional)</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               pattern='(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}
+                               \.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'
+                               placeholder="you@example.com">
+                        <span class="text-danger d-none error" id="err-email">*Please enter a valid email</span>
+                        <span class="text-danger d-none error" id="err-email-phone">*Please provide either an email address or phone number so that we can get in touch with you. Email is preferred!</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone Number (optional)</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" maxlength="10"
+                               pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+                               placeholder="1234567890">
+                        <span class="text-danger d-none error" id="err-phone">*Please enter a last name.</span>
+                    </div>
                 </div>
             </div>
 
