@@ -134,7 +134,7 @@ include('includes/header.html');?>
     <!-- Toggle button to see form -->
     <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" id="formOn">
-        <label class="custom-control-label" for="formOn">Form: On/Off</label>
+        <label class="custom-control-label" for="formOn">Form: Off/On</label>
     </div>
 
     <!-- Notice -->
@@ -197,8 +197,8 @@ include('includes/header.html');?>
                         </div>
                         <!-- zip code selection -->
                         <div class="form-group col-md-2">
-                            <label>Zip Code</label>
-                            <input type="text" class="form-control" id="zip" placeholder="98031">
+                            <label for="zip">Zip Code</label>
+														<input type="text" class="form-control" id="zip" name="zip" placeholder="98031">
                             <span class="text-danger d-none error" id="err-zip">*We are sorry to inform you that your zip code is outside the service range</span>
                         </div>
                     </div>
@@ -236,6 +236,8 @@ include('includes/header.html');?>
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="utilDocs">
+									<span class="text-danger">*Please bring in your current bill/final notice.</span>
+									<!--
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="utilitiesFile">
                         <label class="custom-file-label" for="utilitiesFile">Optional: Bring in or attach a picture of
@@ -244,6 +246,7 @@ include('includes/header.html');?>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
+                    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="rent" value="rent" name="services[]">
@@ -252,7 +255,9 @@ include('includes/header.html');?>
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="rentDocs">
-                    <div class="custom-file">
+									<span class="text-danger">*Please bring in your eviction notice.</span>
+									<!--
+									<div class="custom-file">
                         <input type="file" class="custom-file-input" id="rentFile">
                         <label class="custom-file-label" for="rentFile">Optional: Bring in or attach a picture of
 													your eviction notice.</label>
@@ -260,6 +265,7 @@ include('includes/header.html');?>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
+                    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gas" value="gas" name="services[]">
@@ -268,7 +274,9 @@ include('includes/header.html');?>
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="gasDocs">
-                    <div class="custom-file">
+									<span class="text-danger">*Please bring in your current Washington State Driver's License.</span>
+									<!--
+									<div class="custom-file">
                         <input type="file" class="custom-file-input" id="gasFile">
                         <label class="custom-file-label" for="gasFile">Optional: Bring in or attach a picture of your
 													Washington State Drivers License</label>
@@ -276,6 +284,7 @@ include('includes/header.html');?>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
+                    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="household" value="household" name="services[]">
