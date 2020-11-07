@@ -20,20 +20,19 @@ $zip = $_POST['zip'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $services = implode(", ",$_POST['services']);
+$otherService = $_POST['otherServices'];
 $comments = $_POST['comments'];
 
-//Send email
+//Setup the email
 $to = "rrivera@mail.greenriver.edu";
 $subject = "Outreach Service Request";
 $headers = "Name: $fname <myemail@somewhere.com>"; //replace with email variable
-
-//Setup email
 date_default_timezone_set("America/Los_Angeles");
 $timestamp = date("m/d/y h:i a");
 $body = "Submitted : $timestamp\n";
 $body .= "First:  $fname\n";
 $body .= "Last:  $lname\n";
-
+$body .= "No Permanent Residence:  $permRes\n";
 $body .= "Addr1:  $address1\n";
 $body .= "Addr2:  $address2\n";
 $body .= "City:  $city\n";
@@ -42,11 +41,11 @@ $body .= "Zip:  $zip\n";
 $body .= "Email:  $email\n";
 $body .= "Phone:  $phone\n";
 $body .= "Requested Services:  $services\n";
+$body .= "Other Service:   $otherService\n";
 $body .= "Comments:  $comments\n";
 
-
 //Send email to organization mailbox
-//mail($to, $subject, $body, $headers);
+mail($to, $subject, $body, $headers);
 
 ?>
 
@@ -85,6 +84,7 @@ $body .= "Comments:  $comments\n";
         <tr><th class="pb-1 pl-3">Email:</th><td><? echo $email ?></td></tr>
         <tr><th class="pb-1 pl-3">Phone:</th><td><? echo $phone ?></td></tr>
         <tr><th class="pb-1 pl-3">Services Requested:</th><td><? echo $services ?></td></tr>
+        <tr><th class="pb-1 pl-3">Other Service:</th><td><? echo $otherService ?></td></tr>
         <tr><th class="text-center bg-secondary text-white p-2" colspan="2">Comments:</th></tr>
         <tr><th class="p-1" colspan="2"><? echo $comments ?></th></tr>
         </tbody>
