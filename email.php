@@ -90,7 +90,7 @@ mail($to, $subject, $body, $headers);
         </tbody>
     </table>
     <!--  Return to main page button  -->
-    <form class="pt-5" action="http://rrivera.greenriverdev.com/305/kent/index.php">
+    <form class="pt-5" action="http://dar2.greenriverdev.com/index.php">
         <button type="submit" class="btn btn-secondary">Return to main page</button>
     </form>
 </div>
