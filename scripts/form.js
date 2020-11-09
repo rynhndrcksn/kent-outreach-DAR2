@@ -1,56 +1,16 @@
 window.onLoad = closeForm();
-//show form with hidden address section if no permanent residence
+//hide address section if no permanent residence
 document.getElementById("permRes").onclick = hideAddress;
 
 function hideAddress() {
-	document.getElementById("form-main").classList.remove("d-none");
 	let permResidence = document.getElementById("permRes");
 	let hide = document.getElementById("address-section");
 	if (permResidence.checked === true) {
 		hide.classList.add("d-none");
-		document.getElementById("zipDiv").classList.add("d-none");
 	}
 	else {
 		hide.classList.remove("d-none");
-		document.getElementById("form-main").classList.add("d-none");
-		document.getElementById("zipDiv").classList.remove("d-none");
 	}
-}
-
-//zip code validation
-document.getElementById("submit-btn").onclick = validateZip;
-
-function validateZip() {
-
-	clearErrors();
-	let isValid;
-
-	let zip = document.getElementById("zipCheck").value;
-	if (zip !== "") {
-		if (zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042") {
-			let successZipCheck = document.getElementById("success-zipCheck");
-			successZipCheck.classList.remove("d-none");
-			//show form if valid zip
-			document.getElementById("form-main").classList.remove("d-none");
-			isValid = true;
-		} else {
-			let errZipCheck = document.getElementById("err-zipCheck");
-			errZipCheck.classList.remove("d-none");
-			document.getElementById("form-main").classList.add("d-none");
-			isValid = false;
-		}
-	}
-
-	//if zip is empty
-	zip = document.getElementById("zipCheck").value;
-	if(zip === "") {
-		let emptyZip = document.getElementById("empty-zipCheck");
-		emptyZip.classList.remove("d-none");
-		document.getElementById("form-main").classList.add("d-none");
-		isValid = false;
-	}
-
-	return isValid;
 }
 
 //validate form fields
@@ -137,19 +97,11 @@ function validate() {
 	let permResidence = document.getElementById("permRes");
 	if(permResidence.checked === false) {
 		let zip = document.getElementById("zip").value;
-		if(zip !== "") {
-			if (zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042")
-				isValid = true;
-			else {
-				let errZip = document.getElementById("err-zip");
-				errZip.classList.remove("d-none");
-				isValid = false;
-			}
-		}
-		//if zip is empty
-		if(zip === "") {
-			let emptyZip = document.getElementById("empty-zip");
-			emptyZip.classList.remove("d-none");
+		if (zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042")
+			isValid = true;
+		else {
+			let errZip = document.getElementById("err-zip");
+			errZip.classList.remove("d-none");
 			isValid = false;
 		}
 	}

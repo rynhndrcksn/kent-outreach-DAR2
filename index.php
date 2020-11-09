@@ -235,17 +235,17 @@ include('includes/header.html');?>
                                \.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'
                                placeholder="you@example.com">
                         <span class="text-danger d-none error" id="err-email">*Please enter a valid email</span>
-                        <span class="text-danger d-none error" id="err-email-phone">*Please provide either an email address or phone number so that we can get in touch with you. Email is preferred!</span>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="phone">Phone Number (optional)</label>
                         <input type="tel" class="form-control" id="phone" name="phone" maxlength="10"
                                pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
                                placeholder="1234567890">
-                        <span class="text-danger d-none error" id="err-phone">*Please enter a last name.</span>
                     </div>
+                    <span class="text-danger d-none error" id="err-email-phone">*Please provide either an email address or phone number so that we can get in touch with you. Email is preferred!</span>
                 </div>
             </div>
+            <br>
 
             <!-- start of service selections -->
             <div id="servicesDiv">
