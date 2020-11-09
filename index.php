@@ -142,19 +142,41 @@ include('includes/header.html');?>
     <p>Appointments are made first come first served. Online form is only accessible during business hours.
         If you cannot access form it is either outside of business hours or we have filled our appointments
         for the week. Please try again next Monday beginning at 1pm.</p>
+    <br>
+
+    <div class="resCheck text-center border p-2">
+        <h3>Please List Residence Status</h3>
+        <h5>(Zip Code or Without Residence)</h5>
+        <br>
+        <!-- check for permanent residence  -->
+        <div class="checkbox">
+            <label><input type="checkbox" id="permRes" name="permRes"> No Permanent Residence</label>
+        </div>
+        <!-- zip code selection -->
+        <form id="form-zipCheck" method="get">
+            <fieldset class="form-group col zipCheck">
+                <div class="form-group col zip" id="zipDiv">
+                    <label>Check if Zip Code is Within Our Service Range</label>
+                    <input type="text" class="form-control col-md-5" id="zipCheck" placeholder="98031">
+                    <span class="text-danger d-none error"
+                          id="empty-zipCheck">*Please enter a zip code</span>
+                    <span class="text-danger d-none error" id="err-zipCheck">*We are sorry to inform you that your zip code is outside the service range</span>
+                    <span class="text-success d-none error"
+                          id="success-zipCheck">Your zip code is within our service range!</span>
+
+                    <!-- zip check button -->
+                    <input type="button" value="Check Zip" class="btn btn-dark btn-lg submit zipCheckBtn" id="submit-btn">
+                </div>
+            </fieldset>
+        </form>
+    </div>
 
     <!-- beginning of form -->
-    <form class="" id="form-main" method="post" action="email.php">
+    <form class="d-none" id="form-main" method="get" action="confirmation.php">
         <fieldset class="form-group border p-2">
             <legend class="text-center font-weight-bold">Request assistance</legend>
 
             <!-- start of contact information -->
-
-            <!-- check for permanent residence  -->
-            <div class="checkbox">
-                <label><input type="checkbox" id="permRes" name="permRes"> No permanent residence</label>
-            </div>
-
             <div id="contactInfoDiv">
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -168,7 +190,6 @@ include('includes/header.html');?>
                         <span class="text-danger d-none error" id="err-lname">*Please enter a last name</span>
                     </div>
                 </div>
-
 
                 <!-- address  -->
                 <div class="address-field" id="address-section">
@@ -339,9 +360,8 @@ include('includes/header.html');?>
     <!--##################    OTHER RESOURCES SECTION    ##################-->
     <br>
     <fieldset class="other-resources border p-2">
-        <legend class="text-center" id="resources">If the form is unavailable at this time, try these other
-            resources
-        </legend>
+        <legend class="text-center" id="resources">Other Resources
+            <h5>(if Form is Unavailable or Unqualified to Receive Services)</h5></legend>
         <ul class="resources-list">
             <li class="list-item"><a class="link" href="https://www.211.org/">211<img class="logo img-fluid"
                                                                                       src="images/211-logo.svg"
