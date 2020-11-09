@@ -157,7 +157,7 @@ include('includes/header.html');?>
             <fieldset class="form-group col zipCheck">
                 <div class="form-group col zip" id="zipDiv">
                     <label>Check if Zip Code is Within Our Service Range</label>
-                    <input type="text" class="form-control col-md-5" id="zipCheck" placeholder="98031">
+                    <input type="text" class="form-control col-md-2" id="zipCheck" placeholder="98031">
                     <span class="text-danger d-none error"
                           id="empty-zipCheck">*Please enter a zip code</span>
                     <span class="text-danger d-none error" id="err-zipCheck">*We are sorry to inform you that your zip code is outside the service range</span>
