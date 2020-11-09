@@ -22,14 +22,14 @@ if (formZip !== "zipNotListed" || formZip !== "none") {
 }
 
 //form switch for test purposes
-let formSwitch = document.getElementById("formOn").onclick = formOnOff;
+document.getElementById("formOn").onclick = formOnOff;
 function formOnOff(){
 	let formSwitch1 = document.getElementById("formOn");
 	let form = document.getElementById("form-main");
 	console.log(formSwitch1);
-	if(formSwitch1.checked == true){
+	if(formSwitch1.checked === true){
 		form.classList.remove("d-none");
-	}else if(formSwitch1.checked == false) {
+	}else if(formSwitch1.checked === false) {
 		form.classList.add("d-none");
 	}
 }
