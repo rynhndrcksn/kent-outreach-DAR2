@@ -196,22 +196,23 @@ include('includes/header.html');?>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                                   name="address1">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputAddress2">Address 2</label>
                             <input type="text" class="form-control" id="inputAddress2"
-                                   placeholder="Apartment, studio, or floor">
+                                   placeholder="Apartment, studio, or floor" name="address2">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Kent">
+                            <input type="text" class="form-control" id="inputCity" placeholder="Kent" name="city">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" class="form-control" name="state">
                                 <option selected>Choose...</option>
                                 <option selected>WA</option>
                             </select>
