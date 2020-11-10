@@ -6,7 +6,6 @@ html {
 
 /***** Navbar Styles ******/
 .nav-link {
-    color: lightgray!important;
     padding-right: 1.5rem!important;
     padding-left: 1.5rem!important;
     font-size: 18px;
@@ -69,6 +68,24 @@ ol#qualification-items {
     margin-left: auto;
     margin-right: auto;
     width: 22em;
+}
+
+/***** Residence Status Styles *****/
+.zip, fieldset.zipCheck {
+    padding-left: 0;
+}
+
+div.zip span {
+    display: block;
+}
+
+#zipCheck {
+    margin: 0 auto;
+}
+
+/***** Zip Button Styles *****/
+.zipCheckBtn {
+    font-size: 18px;
 }
 
 /*****Other Resources Styles*****/
