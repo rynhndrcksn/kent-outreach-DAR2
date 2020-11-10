@@ -27,8 +27,8 @@ $other = $_POST['otherServices'];
 $comments = $_POST['comments'];
 
 //Setup the email
-$to = "";
-$subject = "Outreach Service Request"; //replace with email
+$to = "";//replace with email
+$subject = "Outreach Service Request";
 $headers = "Name: $fname <myemail@somewhere.com>"; //replace with email
 date_default_timezone_set("America/Los_Angeles");
 $timestamp = date("Y/m/d h:i:s");
@@ -55,12 +55,12 @@ $sql = "INSERT INTO requests VALUES
 //Send the query to the server, store result
 $success = mysqli_query($cnxn, $sql);
 
-//If database query returns false(fail), display error message
+//If database query returns false (failed), display error message
 if(!$success){
     echo "<p>Sorry . . . something went wrong</p>";
     return;
 }
-//If database query returns true(success), send submission email
+//If database query returns true (succeeded), send submission email
 else{
     mail($to, $subject, $body, $headers);
 }
