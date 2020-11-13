@@ -19,7 +19,6 @@ include('includes/header.html');?>
 
     <!--##################    ABOUT US SECTION   ##################-->
 
-    <!-- Dana's About Us Section -->
     <fieldset class="about-us form-group border p-2">
         <legend class="font-weight-bold text-center" id="about">About Us</legend>
         <p class="about-info">The Outreach provides low-income Kent residents and the homeless with food, water,
