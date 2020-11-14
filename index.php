@@ -19,7 +19,6 @@ include('includes/header.html');?>
 
     <!--##################    ABOUT US SECTION   ##################-->
 
-    <!-- Dana's About Us Section -->
     <fieldset class="about-us form-group border p-2">
         <legend class="font-weight-bold text-center" id="about">About Us</legend>
         <p class="about-info">The Outreach provides low-income Kent residents and the homeless with food, water,
@@ -144,7 +143,7 @@ include('includes/header.html');?>
         for the week. Please try again next Monday beginning at 1pm.</p>
     <br>
 
-    <div class="resCheck text-center border p-2">
+    <div class="resCheck text-center border p-2 d-none" id="resCheckDiv">
         <h3>Please List Residence Status</h3>
         <h5>(Zip Code or Without Residence)</h5>
         <br>
@@ -196,23 +195,22 @@ include('includes/header.html');?>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
-                                   name="address1">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputAddress2">Address 2</label>
                             <input type="text" class="form-control" id="inputAddress2"
-                                   placeholder="Apartment, studio, or floor" name="address2">
+                                   placeholder="Apartment, studio, or floor">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Kent" name="city">
+                            <input type="text" class="form-control" id="inputCity" placeholder="Kent">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="inputState" class="form-control" name="state">
+                            <select id="inputState" class="form-control">
                                 <option selected>Choose...</option>
                                 <option selected>WA</option>
                             </select>
@@ -220,7 +218,7 @@ include('includes/header.html');?>
                         <!-- zip code selection -->
                         <div class="form-group col-md-2">
                             <label for="zip">Zip Code</label>
-														<input type="text" class="form-control" id="zip" name="zip" placeholder="98031">
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="98031">
                             <span class="text-danger d-none error" id="err-zip">*We are sorry to inform you that your zip code is outside the service range</span>
                         </div>
                     </div>
@@ -252,23 +250,23 @@ include('includes/header.html');?>
             <div id="servicesDiv">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="utilities" value="utilities"
-													 name="services[]">
+                           name="services[]">
                     <label class="form-check-label" for="utilities">
                         Utilities (electricity or water)
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="utilDocs">
-									<span class="text-danger">*Please bring in your current bill/final notice.</span>
-									<!--
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="utilitiesFile">
-                        <label class="custom-file-label" for="utilitiesFile">Optional: Bring in or attach a picture of
-													your current bill/final notice.</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    -->
+                    <span class="text-danger">*Please bring in your current bill/final notice.</span>
+                    <!--
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="utilitiesFile">
+        <label class="custom-file-label" for="utilitiesFile">Optional: Bring in or attach a picture of
+                                    your current bill/final notice.</label>
+    </div>
+    <div class="input-group-append">
+        <span class="input-group-text">Upload</span>
+    </div>
+    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="rent" value="rent" name="services[]">
@@ -277,17 +275,17 @@ include('includes/header.html');?>
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="rentDocs">
-									<span class="text-danger">*Please bring in your eviction notice.</span>
-									<!--
-									<div class="custom-file">
-                        <input type="file" class="custom-file-input" id="rentFile">
-                        <label class="custom-file-label" for="rentFile">Optional: Bring in or attach a picture of
-													your eviction notice.</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    -->
+                    <span class="text-danger">*Please bring in your eviction notice.</span>
+                    <!--
+                    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="rentFile">
+        <label class="custom-file-label" for="rentFile">Optional: Bring in or attach a picture of
+                                    your eviction notice.</label>
+    </div>
+    <div class="input-group-append">
+        <span class="input-group-text">Upload</span>
+    </div>
+    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gas" value="gas" name="services[]">
@@ -296,17 +294,17 @@ include('includes/header.html');?>
                     </label>
                 </div>
                 <div class="input-group mb-3 d-none" id="gasDocs">
-									<span class="text-danger">*Please bring in your current Washington State Driver's License.</span>
-									<!--
-									<div class="custom-file">
-                        <input type="file" class="custom-file-input" id="gasFile">
-                        <label class="custom-file-label" for="gasFile">Optional: Bring in or attach a picture of your
-													Washington State Drivers License</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                    -->
+                    <span class="text-danger">*Please bring in your current Washington State Driver's License.</span>
+                    <!--
+                    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="gasFile">
+        <label class="custom-file-label" for="gasFile">Optional: Bring in or attach a picture of your
+                                    Washington State Drivers License</label>
+    </div>
+    <div class="input-group-append">
+        <span class="input-group-text">Upload</span>
+    </div>
+    -->
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="household" value="household" name="services[]">
@@ -326,19 +324,19 @@ include('includes/header.html');?>
                         Food
                     </label>
                 </div>
-							<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="other" value="other" name="services[]">
-									<label class="form-check-label" for="other">
-										Other:
-									</label>
-								</div>
-								<div class="form-group d-none" id="showOther">
-									<label for="otherService">Please list the other services you are interested in:</label>
-									<textarea class="form-control" id="otherService" name="otherServices" rows="2"></textarea>
-									<span class="text-danger d-none error" id="err-other">*Please fill out what other services you
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="other" value="other" name="services[]">
+                    <label class="form-check-label" for="other">
+                        Other:
+                    </label>
+                </div>
+                <div class="form-group d-none" id="showOther">
+                    <label for="otherService">Please list the other services you are interested in:</label>
+                    <textarea class="form-control" id="otherService" name="otherServices" rows="2"></textarea>
+                    <span class="text-danger d-none error" id="err-other">*Please fill out what other services you
 										are interested in.</span>
-								</div>
-								<span class="text-danger d-none error" id="err-services">*Please select at least 1 service.</span>
+                </div>
+                <span class="text-danger d-none error" id="err-services">*Please select at least 1 service.</span>
                 <br>
                 <div class="form-group">
                     <label for="comments">Any additional Comments:</label>

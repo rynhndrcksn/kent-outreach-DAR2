@@ -61,20 +61,17 @@ function validateZip() {
 //validate form fields
 document.getElementById("form-main").onsubmit = validate;
 
-let formZip = document.getElementById("zip").value;
-if (formZip !== "zipNotListed" || formZip !== "none") {
-    showForms();
-}
-
 //form switch for test purposes
 document.getElementById("formOn").onclick = formOnOff;
 function formOnOff(){
 	let formSwitch1 = document.getElementById("formOn");
+	let resCheck = document.getElementById("resCheckDiv");
 	let form = document.getElementById("form-main");
 	console.log(formSwitch1);
 	if(formSwitch1.checked === true){
-		form.classList.remove("d-none");
+		resCheck.classList.remove("d-none");
 	}else if(formSwitch1.checked === false) {
+		resCheck.classList.add("d-none");
 		form.classList.add("d-none");
 	}
 }
@@ -82,7 +79,7 @@ function formOnOff(){
 function closeForm(){
 	let hours = new Date().getHours();
 	let day = new Date().getDay();
-	let form = document.getElementById("form-main");
+	let form = document.getElementById("resCheckDiv");
 
 	if (day === 1 || day === 3){
 		if(hours < 13 || hours > 15){
@@ -97,14 +94,6 @@ function closeForm(){
 	}
 
 }
-
-function showForms() {
-    let contactInfo = document.getElementById("contactInfoDiv");
-    let services = document.getElementById("servicesDiv");
-    contactInfo.classList.remove("d-none");
-    services.classList.remove("d-none");
-}
-
 
 // make all error messages invisible again
 function clearErrors() {
