@@ -1,0 +1,43 @@
+img.icon {
+    width: 7em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#winter-icon {
+    width: 10em;
+}
+
+#supplies-icon {
+    width: 11.7em;
+}
+
+#gift-icon {
+    width: 5.8em;
+}
+
+#donations-icon {
+    width: 12em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gen-donations {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+div.text-body, #donation-body-box, .seasonal-opp-donations {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#donation-body {
+    padding: 20px;
+}
+
+.thrift-volunteer {
+    padding-right: 40px;
+}
