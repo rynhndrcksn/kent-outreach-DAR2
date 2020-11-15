@@ -1,9 +1,9 @@
 <?php
 //Set Navbar links
-$about_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#about';
-$services_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#services';
-$contact_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#contact';
-$navbar_link = 'http://rrivera.greenriverdev.com/305/kent/index.php';
+$about_link = 'http://dar2.greenriverdev.com/index.php#about';
+$services_link = 'http://dar2.greenriverdev.com/index.php#services';
+$contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
+$navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $page_title = 'Kent Outreach Program';
 $page_specific_script = '';
 
@@ -69,23 +69,26 @@ else{
 <!--##################    FORM SUBMISSION PAGE    ##################-->
 
 <div class="acknowledge-div pb-5">
-    <div class="jumbotron text-center bg-white">
-        <h1 class="display-4">Submission Accepted</h1>
-        <h3>Thank you <em><? echo $fname." ".$lname ?></em>, for your submission.
-            A member of our team will review your information and reach out to
-            you as soon as possible!</h3>
+    <!--  Header  -->
+    <div class="content-wrap pt-5">
+        <div class="content-wrap  border text-center">
+            <h1 class="font-weight-bold text-center pt-4">Submitted Accepted</h1><br>
+            <h3 class="pb-4 pr-4 pl-4">Thank you <em><? echo $fname." ".$lname ?></em>, for your submission.
+                A member of our team will reach out to you as soon as possible!</h3>
+        </div>
     </div>
+
     <!--  Form Information table  -->
     <table class="schedule">
         <colgroup>
-            <col class="w-25" span="1" />
-            <col span="3" />
+            <col class="w-25" span="2" />
+            <col class="w-75" span="3" />
         </colgroup>
-
         <thead>
-        <tr><th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th></tr>
+            <tr>
+                <th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th>
+            </tr>
         </thead>
-
         <tbody>
         <tr><th class="pb-1 pl-3">Name:</th><td><? echo $fname." ".$lname?></td></tr>
         <?
@@ -110,13 +113,15 @@ else{
     </table>
 
     <!--  Return to main page button  -->
-    <form class="pt-5" action="http://dar2.greenriverdev.com/index.php">
-        <button type="submit" class="btn btn-secondary">Return to main page</button>
-    </form>
+<!--    <form class="pt-5" action="http://dar2.greenriverdev.com/index.php">-->
+<!--        <button type="submit" class="btn btn-secondary">Return to main page</button>-->
+<!--    </form>-->
 </div>
 
 <!--##################    FOOTER SECTION    ##################-->
 
-<?php include('includes/footer.html'); ?>
+<?php
+//Add footer
+include('includes/footer.html'); ?>
 
 

@@ -1,8 +1,8 @@
 <?php
-$about_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#about';
-$services_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#services';
-$contact_link = 'http://rrivera.greenriverdev.com/305/kent/index.php#contact';
-$navbar_link = 'http://rrivera.greenriverdev.com/305/kent/index.php';
+$about_link = 'http://dar2.greenriverdev.com/index.php#about';
+$services_link = 'http://dar2.greenriverdev.com/index.php#services';
+$contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
+$navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $page_title = 'Admin Portal';
 //Add Navbar
 include("includes/header.html");
