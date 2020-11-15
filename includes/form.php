@@ -26,7 +26,7 @@
 </div>
 
 <!-- beginning of form -->
-<form class="d-none" id="form-main" method="get" action="confirmation.php">
+<form class="d-none" id="form-main" method="post" action="confirmation.php">
     <fieldset class="form-group border p-2">
         <legend class="text-center font-weight-bold">Request assistance</legend>
 
@@ -66,7 +66,7 @@
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
                         <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
+                            <option selected disabled>Choose...</option>
                             <option selected>WA</option>
                         </select>
                     </div>
