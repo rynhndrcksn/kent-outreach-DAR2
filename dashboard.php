@@ -29,66 +29,40 @@ require("includes/dbcreds.php");
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!--    SERVICE REQUEST TABLE    -->
-                <table id="request-table" class="display bg-dark">
-                    <thead>
-                    <tr class="text-white">
-                        <td>Req_ID</td>
-                        <td>Request_Date</td>
-                        <td>Full_Name</td>
-                        <td>Address1</td>
-                        <td>Address2</td>
-                        <td>City</td>
-                        <td>State</td>
-                        <td>Zip</td>
-                        <td>Email</td>
-                        <td>Phone</td>
-                        <td>Services_Requested</td>
-                        <td>Other_Services</td>
-                        <td>Additional_Comments</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    //Create select query to get table contents
-                    $sqlrequests = "SELECT * FROM requests";
-                    //Send query to the server and store data array into variable
-                    $result = mysqli_query($cnxn, $sqlrequests);
+							<table id="requests-table" class="display" data-order='[[13, "DESC"]]'>
+								<thead>
+								<tr>
+									<th>Request ID:</th>
+									<th>First Name:</th>
+									<th>Last Name:</th>
+									<th>Address 1:</th>
+									<th>Address 2:</th>
+									<th>City:</th>
+									<th>State:</th>
+									<th>Zip:</th>
+									<th>Email:</th>
+									<th>Phone:</th>
+									<th>Services:</th>
+									<th>Other:</th>
+									<th>Comments:</th>
+									<th>Date:</th>
+								</tr>
+								</thead>
+								<tbody>
+		            <?php
+		            $sql = 'SELECT * FROM requests';
+		            $result = mysqli_query($cnxn, $sql);
 
-                    //loop over arrays within the array as rows, set info to variables, print results
-                    foreach($result as $row){
-                        $requestId = $row['request_id'];
-                        $fullname = $row['first_name']." ".$row['last_name'];
-                        $address1 = $row['address_line1'];
-                        $address2 = $row['address_line2'];
-                        $city = $row['city'];
-                        $state = $row['state'];
-                        $zip = $row['zip'];
-                        $email = $row['email'];
-                        $phone = $row['phone'];
-                        $services = $row['services'];
-                        $otherText = $row['other'];
-                        $commentText = $row['comments'];
-                        $timestamp = date( "M d, Y g:i a", strtotime($row['request_date']));
-
-                        echo "<tr>";
-                        echo "<td>$requestId</td>";
-                        echo "<td>$timestamp</td>";
-                        echo "<td>$fullname</td>";
-                        echo "<td>$address1</td>";
-                        echo "<td>$address2</td>";
-                        echo "<td>$city</td>";
-                        echo "<td>$state</td>";
-                        echo "<td>$zip</td>";
-                        echo "<td>$email</td>";
-                        echo "<td>$phone</td>";
-                        echo "<td>$services</td>";
-                        echo "<td>$otherText</td>";
-                        echo "<td>$commentText</td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                    </tbody>
-                </table>
+		            foreach ($result as $row) {
+			            echo '<tr>';
+			            foreach ($row as $value) {
+				            echo "<td>$value</td>";
+			            }
+			            echo '</tr>';
+		            }
+		            ?>
+								</tbody>
+							</table>
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <!--  TOGGLE REQUEST FORM  -->
@@ -138,3 +112,11 @@ require("includes/dbcreds.php");
 <?php
 //Add Footer
 include("includes/footer.html")?>
+<!-- add datatables.net js -->
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+	$('#requests-table').DataTable({
+		'scrollX': true
+	});
+</script>
+
