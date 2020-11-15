@@ -91,15 +91,18 @@ div.zip span {
 /*****Other Resources Styles*****/
 legend#resources {
     font-size: 2em;
+    margin-bottom: -6px;
 }
 
 .logo {
-    width: 10%;
-    padding-left: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
 .logo#UMCLogo {
-    width: 15%!important;
+    width: 75%;
 }
 
 

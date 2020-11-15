@@ -69,7 +69,7 @@ require('includes/dbcreds.php');
                 <img src="images/icon-house.svg" class="card-img-top align-self-center service-icon pt-5"
                      alt="A picture of a small model house sitting upon a pile of coins">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Rent or Utilities</h5>
+                    <h4 class="card-title text-center font-weight-bold">Rent or Utilities</h4>
                     <p class="card-text font">We can help pay an amount towards your rent or utilities</p>
                     <ul>
                         <li>Once per calendar year</li>
@@ -80,9 +80,10 @@ require('includes/dbcreds.php');
             </div>
             <!--  Card 2 -->
             <div class="card service-card mx-auto">
-                <img src="images/icon-pantry.svg" class="card-img-top align-self-center service-icon pt-5" alt="many fruits and vegetables">
+                <img src="images/icon-pantry.svg" class="card-img-top align-self-center service-icon pt-5"
+                     alt="many fruits and vegetables">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Food Pantry</h5>
+                    <h4 class="card-title text-center font-weight-bold">Food Pantry</h4>
                     <p class="card-text">We can help with emergency groceries or toiletries.</p>
                     <ul>
                         <li>Once per month</li>
@@ -94,9 +95,10 @@ require('includes/dbcreds.php');
         <div class="card-deck mx-auto">
             <!--  Card 3 -->
             <div class="card service-card mx-auto">
-                <img src="images/icon-thrift.svg" class="card-img-top align-self-center service-icon pt-5" alt="clothing hanging on hangars">
+                <img src="images/icon-thrift.svg" class="card-img-top align-self-center service-icon pt-5"
+                     alt="clothing hanging on hangars">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Thrift Store Voucher</h5>
+                    <h4 class="card-title text-center font-weight-bold">Thrift Store Voucher</h4>
                     <p class="card-text">We can provide a voucher redeemable at local thrift stores (hours coming soon)
                         The voucher is good for clothing and small household items.</p>
                     <ul>
@@ -106,9 +108,10 @@ require('includes/dbcreds.php');
             </div>
             <!--  Cards 4 -->
             <div class="card service-card mx-auto">
-                <img src="images/icon-gas2.svg" class="card-img-top align-self-center service-icon pt-5" alt="a car being filled up at the gas pump">
+                <img src="images/icon-gas2.svg" class="card-img-top align-self-center service-icon pt-5"
+                     alt="a car being filled up at the gas pump">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Gas Card</h5>
+                    <h4 class="card-title text-center font-weight-bold">Gas Card</h4>
                     <p class="card-text">We can provide you with a gas card</p>
                     <ul>
                         <li>Can only be requested once every six months</li>
@@ -121,12 +124,15 @@ require('includes/dbcreds.php');
         <div class="card-deck mx-auto">
             <!--  Card 5 -->
             <div class="card service-card mx-auto">
-                <img src="images/icon-id.svg" class="card-img-top align-self-center service-icon pt-5" alt="a person holding car keys">
+                <img src="images/icon-id.svg" class="card-img-top align-self-center service-icon pt-5"
+                     alt="a person holding car keys">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Drivers License/ID card</h5>
+                    <h4 class="card-title text-center font-weight-bold">Drivers License/ID card</h4>
                     <p class="card-text">If you are seeking an ID card, check with DSHS to see if you qualify for a
                         voucher, we will cover the difference. An appointment will be scheduled to meet with you
-                        at the  <a href="https://www.google.com/maps/place/Kent+Licensing+Agency+Inc/@47.378623,-122.24835,14z/data=!4m5!3m4!1s0x0:0x47235f811a68cb8b!8m2!3d47.3786226!4d-122.2483503?hl=en-US">Department of Licensing in Kent.</a></p>
+                        at the <a
+                                href="https://www.google.com/maps/place/Kent+Licensing+Agency+Inc/@47.378623,-122.24835,14z/data=!4m5!3m4!1s0x0:0x47235f811a68cb8b!8m2!3d47.3786226!4d-122.2483503?hl=en-US">Department
+                            of Licensing in Kent.</a></p>
                 </div>
             </div>
         </div>
@@ -170,16 +176,26 @@ require('includes/dbcreds.php');
     <!--##################    OTHER RESOURCES SECTION    ##################-->
     <br>
     <fieldset class="other-resources border p-2">
-        <legend class="text-center" id="resources">Other Resources
-        <h5>(if Form is Unavailable or Unqualified to Receive Services)</h5></legend>
-        <ul class="resources-list">
-            <li class="list-item"><a class="link" href="https://www.211.org/">211<img class="logo img-fluid"
-                                                                                      src="images/211-logo.svg"
-                                                                                      alt="211-Logo"></a></li>
-            <li class="list-item"><a class="link" href="http://Kentmethodist.com/assistance">Kent Methodist<img
-                            class="logo img-fluid" id="UMCLogo" src="images/KentUMC+Logo.png"
-                            alt="UMC-Logo"></a></li>
-        </ul>
+        <legend class="text-center font-weight-bold" id="resources">Other Resources
+        </legend>
+        <h5 class="text-center pb-3">(if Form is Unavailable or Unqualified to Receive Services)</h5>
+        <div class="card-deck mx-auto">
+            <div class="card service-card mx-auto">
+                <div class="card-body">
+                    <a class="link" href="https://www.211.org/">
+                        <img class="logo img-fluid" src="images/211-logo.svg"
+                             alt="211-Logo"></a>
+                </div>
+            </div>
+            <div class="card service-card mx-auto">
+                <div class="card-body">
+                    <a class="link" href="http://Kentmethodist.com/assistance"><img
+                                class="logo img-fluid" id="UMCLogo" src="images/KentUMC+Logo.png"
+                                alt="UMC-Logo"></a>
+
+                </div>
+            </div>
+        </div>
     </fieldset>
     <br>
 </div> <!-- end container -->
