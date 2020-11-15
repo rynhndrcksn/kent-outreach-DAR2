@@ -3,6 +3,7 @@ $about_link = 'http://dar2.greenriverdev.com/index.php#about';
 $services_link = 'http://dar2.greenriverdev.com/index.php#services';
 $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
+$getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Admin Portal';
 include('includes/header.html'); ?>
 

@@ -2,6 +2,7 @@
 $about_link = '#about';
 $services_link = '#services';
 $contact_link = '#contact';
+$getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $navbar_link = '#';
 $page_title = 'Kent Outreach Program';
 include('includes/header.html');?>
