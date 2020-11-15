@@ -29,7 +29,7 @@ require("includes/dbcreds.php");
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!--    SERVICE REQUEST TABLE    -->
-							<table id="requests-table" class="display">
+							<table id="requests-table" class="display" data-order='[[13, "DESC"]]'>
 								<thead>
 								<tr>
 									<th>Request ID:</th>
