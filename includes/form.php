@@ -103,6 +103,7 @@
 
         <!-- start of service selections -->
         <div id="servicesDiv">
+            <h5 class="font-weight-bold">Services You Need:</h5>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="utilities" value="utilities"
                        name="services[]">

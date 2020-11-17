@@ -150,6 +150,19 @@ input.submit:hover {
     color: #636a71;
 }
 
+.fa-lock {
+    font-size: 14px;
+    color: #c50c0c!important;
+}
+
+.link#adminlink {
+    color: #c50c0c!important;
+}
+
+.link#adminlink:hover {
+    color: #b75151!important;
+}
+
 .gmap-footer {
     display: block;
     width: 100%;

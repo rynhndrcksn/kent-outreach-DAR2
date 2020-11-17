@@ -3,6 +3,7 @@ $about_link = 'http://dar2.greenriverdev.com/index.php#about';
 $services_link = 'http://dar2.greenriverdev.com/index.php#services';
 $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
+$getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Admin Portal';
 //Add Navbar
 include("includes/header.html");
@@ -16,7 +17,7 @@ require("includes/dbcreds.php");
             </div>
         </div>
 
-        <!--  DASHBOARD NAVBARD  -->
+        <!--  DASHBOARD NAVBAR  -->
         <ul class="nav nav-pills mb-3 bg-secondary" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Requests</a>
