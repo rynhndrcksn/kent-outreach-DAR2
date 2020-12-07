@@ -41,40 +41,50 @@ require("includes/dbcreds.php");
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!--    SERVICE REQUEST TABLE    -->
-							<table id="requests-table" class="display" data-order='[[13, "DESC"]]'>
-								<thead>
-								<tr>
-									<th>Request ID:</th>
-									<th>First Name:</th>
-									<th>Last Name:</th>
-									<th>Address 1:</th>
-									<th>Address 2:</th>
-									<th>City:</th>
-									<th>State:</th>
-									<th>Zip:</th>
-									<th>Email:</th>
-									<th>Phone:</th>
-									<th>Services:</th>
-									<th>Other:</th>
-									<th>Comments:</th>
-									<th>Date:</th>
-								</tr>
-								</thead>
-								<tbody>
-		            <?php
-		            $sql = 'SELECT * FROM requests';
-		            $result = mysqli_query($cnxn, $sql);
+                <table id="requests-table" class="display" data-order='[[1, "DESC"]]'>
+                    <thead>
+                    <tr>
+                        <th>Date:</th>
+                        <th>Name:</th>
+                        <th>Zip:</th>
+                        <th>Email:</th>
+                        <th>Phone:</th>
+                        <th>Services:</th>
+                        <th>Other:</th>
+                        <th>Comments:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $sql = 'SELECT * FROM requests';
+                    $result = mysqli_query($cnxn, $sql);
 
-		            foreach ($result as $row) {
-			            echo '<tr>';
-			            foreach ($row as $value) {
-				            echo "<td>$value</td>";
-			            }
-			            echo '</tr>';
-		            }
-		            ?>
-								</tbody>
-							</table>
+                    foreach ($result as $row) {
+                        $timestamp = $order_date = date("M d, Y g:i a" , strtotime($row['request_date'] . "-3 hours"));
+                        $fullname = $row['first_name']. " " . $row['last_name'];
+                        $zipcode = $row['zip'];
+                        $email = $row['email'];
+                        $phonenumber = $row['phone'];
+                        $services = $row['services'];
+                        $other = $row['other'];
+                        $comments = $row['comments'];
+
+                        echo '<tr>';
+
+                        echo "<td>$timestamp</td>";
+                        echo "<td>$fullname</td>";
+                        echo "<td>$zipcode</td>";
+                        echo "<td>$email</td>";
+                        echo "<td>$phonenumber</td>";
+                        echo "<td>$services</td>";
+                        echo "<td>$other</td>";
+                        echo "<td>$comments</td>";
+
+                        echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <!--  TOGGLE REQUEST FORM  -->
