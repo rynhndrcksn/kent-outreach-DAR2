@@ -5,6 +5,7 @@ $contact_link = '#contact';
 $getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $navbar_link = '#';
 $page_title = 'Kent Outreach Program';
+$page_specific_script = '<script src="scripts/form.js"></script>';
 
 //Login info
 include('includes/loginPath.php');
@@ -144,10 +145,10 @@ require('includes/dbcreds.php');
     <!--##################    FORM SECTION    ##################-->
 
     <!-- Toggle button to see form -->
-<!--    <div class="custom-control custom-switch">-->
-<!--        <input type="checkbox" class="custom-control-input" id="formOn">-->
-<!--        <label class="custom-control-label" for="formOn">Form: Off/On</label>-->
-<!--    </div>-->
+    <!--<div class="custom-control custom-switch">-->
+    <!--    <input type="checkbox" class="custom-control-input" id="formOn">-->
+    <!--    <label class="custom-control-label" for="formOn">Form: Off/On</label>-->
+    <!--</div>-->
 
     <!-- Notice -->
     <h2 class="text-danger" id="contact">Notice</h2>
@@ -158,23 +159,67 @@ require('includes/dbcreds.php');
 
     <!-- beginning of form -->
     <?php
-    //Create select query to get table contents
+    
+    
+    
+    //Query Database table formOn to get current state of the form, either 0(off), 1(on), 2(timer)
     $sqlrequests = "SELECT * FROM formOn";
-    //Send query to the server and store data array into variable
     $result = mysqli_query($cnxn, $sqlrequests);
+    $formState = 0;
     foreach ($result as $row){
         $formState = $row['state'];
     }
 
-    //Load form if state is true, otherwise form is not loaded
-    if($formState){
+    //Load request form based on current state of $formState
+    //If the formOn control is set to override "on"
+    if($formState == 1){
         include("includes/form.php");
     }
-    else{
-        echo "<div class='text-center border'>";
-        echo "  <h3 class='p-3'>The request form is unavailable at this time.<br></h3>";
-        echo "</div>";
+    //If the formOn control is set to timed form, run timedForm function
+    elseif($formState == 2){
+        //Function to check day/hours to determine if form should be loaded
+        timedForm();
     }
+
+    //Checks the time and will load the form if it is during business hours
+    function timedForm(){
+        //Set timezone and day/hour variables
+        date_default_timezone_set("America/Los_Angeles");
+        $day = date("D");
+        $hour = date("H");
+
+        //If it is a business day
+        if($day == "Mon" || $day == "Tue" || $day == "Wed"){
+            //If it is Tuesday and during business hours
+            if($day == "Tue" && ($hour >= 9 && $hour < 12)){
+                include("includes/form.php");
+            }
+            //If it is Monday or Wednesday and during business hours
+            elseif($hour >= 13 && $hour < 16){
+                include("includes/form.php");
+            }
+        }
+    }
+    
+    
+    
+    // //Create select query to get table contents
+    // $sqlrequests = "SELECT * FROM formOn";
+    // //Send query to the server and store data array into variable
+    // $result = mysqli_query($cnxn, $sqlrequests);
+    // foreach ($result as $row){
+    //     $formState = $row['state'];
+    // }
+
+    // //Load form if state is true, otherwise form is not loaded
+    // if($formState){
+    //     include("includes/form.php");
+    // }
+    // // else{
+    // //     echo "<div class='text-center border'>";
+    // //     echo "  <h3 class='p-3'>The request form is unavailable at this time.<br></h3>";
+    // //     echo "</div>";
+    // // }
     ?>
 
     <!--##################    OTHER RESOURCES SECTION    ##################-->
@@ -194,7 +239,7 @@ require('includes/dbcreds.php');
             <div class="card service-card mx-auto">
                 <div class="card-body">
                     <a class="link" href="http://Kentmethodist.com/assistance"><img
-                                class="logo img-fluid" id="UMCLogo" src="images/KentUMC+Logo.png"
+                                class="logo img-fluid" id="UMCLogoIndexPg" src="images/KentUMC+Logo.png"
                                 alt="UMC-Logo"></a>
 
                 </div>

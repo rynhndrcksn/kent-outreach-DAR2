@@ -1,20 +1,23 @@
 <?php
-//Set Navbar links
+//Set navbar links
 $about_link = 'http://dar2.greenriverdev.com/index.php#about';
 $services_link = 'http://dar2.greenriverdev.com/index.php#services';
 $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
+$getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Kent Outreach Program';
 $page_specific_script = '';
 
+//Login info
+include('includes/loginPath.php');
+
 //Include files
 include('includes/header.php');
-require('includes/dbcreds.php');
 
-//Get the form information, set to variables
+//Get the form information and assign to variables
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
-$permRes = $_POST['permRes'];
+$permRes = isset($_POST['permRes']) ? $_POST['permRes']: "";
 $address1 = $_POST['address1'];
 $address2 = $_POST['address2'];
 $city = $_POST['city'];
@@ -26,68 +29,31 @@ $services = implode(", ",$_POST['services']);
 $other = $_POST['otherServices'];
 $comments = $_POST['comments'];
 
-//Setup the email
-$to = "";//replace with email
-$subject = "Outreach Service Request";
-$headers = "Name: $fname <myemail@somewhere.com>"; //replace with email
-date_default_timezone_set("America/Los_Angeles");
-$timestamp = date("M d, Y h:i:s");
-$body = "Submitted : $timestamp\n";
-$body .= "First:  $fname\n";
-$body .= "Last:  $lname\n";
-$body .= "No Permanent Residence:  $permRes\n";
-$body .= "Addr1:  $address1\n";
-$body .= "Addr2:  $address2\n";
-$body .= "City:  $city\n";
-$body .= "State:  $state\n";
-$body .= "Zip:  $zip\n";
-$body .= "Email:  $email\n";
-$body .= "Phone:  $phone\n";
-$body .= "Requested Services:  $services\n";
-$body .= "Other Service:   $other\n";
-$body .= "Comments:  $comments\n";
 
-//Build the SQL query
-$sql = "INSERT INTO requests VALUES
-(null,'$fname', '$lname', '$address1', '$address2', '$city', '$state', '$zip',
-'$email', '$phone', '$services', '$other', '$comments', '$timestamp')";
 
-//Send the query to the server, store result
-$success = mysqli_query($cnxn, $sql);
-
-//If database query returns false (failed), display error message
-if(!$success){
-    echo "<p>Sorry . . . something went wrong</p>";
-    return;
-}
-//If database query returns true (succeeded), send submission email
-else{
-    mail($to, $subject, $body, $headers);
-}
 ?>
 
 <!--##################    FORM SUBMISSION PAGE    ##################-->
 
-<div class="acknowledge-div pb-5">
+<div class="container acknowledge-div pb-5">
+
     <!--  Header  -->
     <div class="content-wrap pt-5">
         <div class="content-wrap  border text-center">
-            <h1 class="font-weight-bold text-center pt-4">Submitted Accepted</h1><br>
-            <h3 class="pb-4 pr-4 pl-4">Thank you <em><? echo $fname." ".$lname ?></em>, for your submission.
-                A member of our team will reach out to you as soon as possible!</h3>
+            <h1 class="font-weight-bold text-center pt-4 pb-4">Please verify your information</h1>
         </div>
     </div>
 
     <!--  Form Information table  -->
     <table class="schedule">
         <colgroup>
-            <col class="w-25" span="2" />
-            <col class="w-75" span="3" />
+            <col class="w-25" span="1" />
+            <col class="w-75" span="1" />
         </colgroup>
         <thead>
-            <tr>
-                <th class="bg-secondary text-white text-center p-2" colspan="4">Service Request Submission</th>
-            </tr>
+        <tr>
+            <th class="bg-secondary text-white text-center" colspan="2">Service Request Submission</th>
+        </tr>
         </thead>
         <tbody>
         <tr><th class="pb-1 pl-3">Name:</th><td><? echo $fname." ".$lname?></td></tr>
@@ -111,12 +77,34 @@ else{
         <tr><th class="p-1" colspan="2"><? echo $comments ?></th></tr>
         </tbody>
     </table>
+
+    <!--  Return to main page button  -->
+    <form class="pt-5" method="post" action="submitted.php">
+        <fieldset>
+            <input type="checkbox" class="d-none" id="permRes" name="permRes">
+            <input type="text" value="<? echo $fname ?>" class="d-none" name="fname">
+            <input type="text" value="<? echo $lname ?>" class="d-none" name="lname">
+            <input type="text" value="<? echo $permRes ?>" class="d-none" name="permRes">
+            <input type="text" value="<? echo $address1 ?>" class="d-none" name="address1" >
+            <input type="text" value="<? echo $address2 ?>" class="d-none" name="address2" >
+            <input type="text" value="<? echo $city?>" class="d-none" name="city">
+            <input type="text" value="<? echo $state?>" class="d-none" name="state">
+            <input type="text" value="<? echo $zip ?>" class="d-none" name="zip" >
+            <input type="email" value="<? echo $email ?>" class="d-none" name="email" >
+            <input type="tel" value="<? echo $phone ?>" class="d-none" name="phone" >
+            <input type="text" value="<? echo $services ?>" class="d-none" name="services" >
+            <input type="text" class="d-none" value="<? echo $other ?>" name="otherServices">
+            <input type="text" class="d-none" value="<? echo $comments ?>" name="comments">
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Submit Request</button>
+            </div>
+        </fieldset>
+
+    </form>
 </div>
 
 <!--##################    FOOTER SECTION    ##################-->
 
-<?php
-//Add footer
-include('includes/footer.php'); ?>
+<?php include('includes/footer.php'); ?>
 
 

@@ -5,11 +5,13 @@ $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $getInvolved_link = '#';
 $page_title = 'Get Involved';
+$page_specific_script = '';
 
 //Login info
 include('includes/loginPath.php');
 
 include('includes/header.php'); ?>
+
 
     <!--   Beginning of page specific content   -->
 

@@ -5,6 +5,10 @@ $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Admin Portal';
+$page_specific_script = '<script src="scripts/formcontrol.js"></script>';
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 session_start();
 if (!isset($_SESSION['loggedin'])) {
@@ -19,7 +23,10 @@ if (!isset($_SESSION['loggedin'])) {
 //Add Navbar
 include("includes/header.php");
 //Add Database info
-require("includes/dbcreds.php");
+require('includes/dbcreds.php');
+//Add functions
+include("includes/functions.php");
+
 ?>
     <div class="container">
         <div class="content-wrap pt-5">
@@ -33,17 +40,32 @@ require("includes/dbcreds.php");
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Requests</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Form Control</a>
-            </li>
+            <!--        <li class="nav-item">-->
+            <!--            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Form Control</a>-->
+            <!--        </li>-->
         </ul>
         <!--  REQUEST TAB CONTENTS  -->
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class="form-group text-center">
+                    <div class="<?echo $alertColor?>" role="alert" id="alert">
+                        <?echo $alertMessage?>
+                    </div>
+                    <button class="form-toggle btn btn-outline-success" name="toggle" id="enable" value="1">Form On</button>
+                    <button class="form-toggle btn btn-outline-secondary" name="toggle" id="timer" value="2">Timer</button>
+                    <button class="form-toggle btn btn-outline-danger" name="toggle" id="disable" value="0">Form Off</button>
+                    <div id="result">
+                    </div>
+                </div>
+                <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
                 <!--    SERVICE REQUEST TABLE    -->
-                <table id="requests-table" class="display" data-order='[[1, "DESC"]]'>
+                <table id="requests-table" class="display" data-order='[[0, "DESC"]]'>
                     <thead>
                     <tr>
+                        <th>Contacted:</th>
                         <th>Date:</th>
                         <th>Name:</th>
                         <th>Zip:</th>
@@ -60,6 +82,7 @@ require("includes/dbcreds.php");
                     $result = mysqli_query($cnxn, $sql);
 
                     foreach ($result as $row) {
+
                         $timestamp = $order_date = date("M d, Y g:i a" , strtotime($row['request_date'] . "-3 hours"));
                         $fullname = $row['first_name']. " " . $row['last_name'];
                         $zipcode = $row['zip'];
@@ -68,9 +91,16 @@ require("includes/dbcreds.php");
                         $services = $row['services'];
                         $other = $row['other'];
                         $comments = $row['comments'];
+                        $id = $row['request_id'];
 
-                        echo '<tr>';
+                        //set checkbox "checked" attribute and color
+                        $checked = $row['contacted'] ? "checked" : "";
+                        $color = $row['contacted'] ? "style='background-color: #D4EDDA;'" : "";
+                        $contacted = "<input type='checkbox' class='contacted-checkbox' id='$id' $checked>";
 
+                        echo "<tr $color>";
+
+                        echo "<td>$contacted</td>";
                         echo "<td>$timestamp</td>";
                         echo "<td>$fullname</td>";
                         echo "<td>$zipcode</td>";
@@ -86,59 +116,8 @@ require("includes/dbcreds.php");
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <!--  TOGGLE REQUEST FORM  -->
-                <form method="post">
-                    <div class="form-group text-center">
-                        <?php
-                        //Check $_POST['toggle'] to see if toggle was clicked, if so flip the formOn state
-                        if(isset($_POST['toggle'])){
-                            //Create select query to get table contents
-                            $sqltoggleformstate = "UPDATE formOn SET state = !state";
-                            //Send query to the server
-                            mysqli_query($cnxn, $sqltoggleformstate);
-                        }
-
-                        //Get the formOn state by sending query,
-                        //Create select query to get table contents
-                        $sqlgetformstate = "SELECT * FROM formOn";
-                        //Send query to the server and store data array into variable
-                        $result = mysqli_query($cnxn, $sqlgetformstate);
-
-                        //Get the state value
-                        foreach ($result as $row) {
-                            $formState = $row['state'];
-                        }
-
-                        //If formOn state is display green/enabled status and red disable button
-                        if ($formState){
-                            echo "<div class=\"alert alert-success\" role=\"alert\">";
-                            echo "  <h4 class=\"alert-heading\">Request Form is currently</h4>";
-                            echo "    <h4 class=\"alert-heading\">ENABLED</h4>";
-                            echo "</div>";
-                            echo "<button type=\"submit\" class=\"btn btn-outline-danger\" name=\"toggle\"\">Disable Form</button>";
-                        }
-                        //Else display red/disabled status and green enable button
-                        else{
-                            echo "<div class=\"alert alert-danger\" role=\"alert\">";
-                            echo "  <h4 class=\"alert-heading\">Request Form is currently</h4>";
-                            echo "    <h4 class=\"alert-heading\">DISABLED</h4>";
-                            echo "</div>";
-                            echo "<button type=\"submit\" class=\"btn btn-outline-success\" name=\"toggle\">Enable Form</button>";
-                        }?>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 <?php
 //Add Footer
 include("includes/footer.php")?>
-<!-- add datatables.net js -->
-<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script>
-	$('#requests-table').DataTable({
-		'scrollX': true
-	});
-</script>
-
