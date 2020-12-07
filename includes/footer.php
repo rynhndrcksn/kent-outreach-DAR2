@@ -1,9 +1,3 @@
-
-<!--  End of page-specific content  -->
-
-<!--##################    FOOTER SECTION    ##################-->
-
-<!-- Collapsible Footer -->
 <footer class="bg-dark text-white p-3">
     <!--  Top Row  -->
     <div class="top-container row row-cols-1 row-cols-md-3 row-cols-lg-3 justify-content-center text-center mx-auto  pt-3">
@@ -51,7 +45,7 @@
                 <ul class="content">
                     <li>Call (253)852-4100</li>
                     <li>or</li>
-                    <li><a class="link" id="complete-form" href="<?echo $contact_link ?>">Complete this form</a></li>
+                    <li><a class="link" id="complete-form" href="<? echo $contact_link ?>">Complete this form</a></li>
                 </ul>
             </div>
         </div>
@@ -60,9 +54,8 @@
     <!--  Bottom Row  -->
     <div class="row row-cols-2 text-center mx-auto">
         <!--  Left Column  -->
-        <div class="col text-left font-weight-bold">
-            <i class="fa fa-lock"></i>
-            <a class="link" id="adminlink" href="dashboard.php">Admin Login</a>
+        <div class="col text-left font-weight-bold adminlink">
+            <a class="link" id="adminlink" href="dashboard.php"><span class="fa fa-lock"></span> Admin</a>
         </div>
         <!--  Right Column  -->
         <div class="col text-right font-weight-bold copyright-text">Created by DAR&#178; &#xa9;</div>
@@ -74,9 +67,8 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
@@ -85,7 +77,8 @@
         crossorigin="anonymous"></script>
 <script src="scripts/navbar.js"></script>
 <script src="scripts/outreach.js"></script>
-<script src="scripts/form.js"></script>
 <? echo $page_specific_script ?>
+<!--<script src="scripts/form.js"></script>-->
+<!--<script src="scripts/formcontrol.js"></script>-->
 </body>
 </html>

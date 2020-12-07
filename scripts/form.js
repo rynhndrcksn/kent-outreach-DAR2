@@ -1,45 +1,40 @@
-window.onLoad = closeForm();
-//hide address section if no permanent residence
-//show form with hidden address section if no permanent residence
 document.getElementById("permRes").onclick = hideAddress;
+document.getElementById("submit-btn").onclick = validateZip;
+document.getElementById("form-main").onsubmit = validate;
 
+//This function will hide the form-fields and zipcode check if no permanent residence is checked
 function hideAddress() {
-	document.getElementById("form-main").classList.remove("d-none");
 	let permResidence = document.getElementById("permRes");
 	let hide = document.getElementById("address-section");
 	if (permResidence.checked === true) {
 		hide.classList.add("d-none");
+		document.getElementById("form-fields").classList.remove("d-none");
 		document.getElementById("zipDiv").classList.add("d-none");
 	}
 	else {
 		hide.classList.remove("d-none");
-		document.getElementById("form-main").classList.add("d-none");
+		document.getElementById("form-fields").classList.add("d-none");
 		document.getElementById("zipDiv").classList.remove("d-none");
 	}
 }
 
-
-
-//zip code validation
-document.getElementById("submit-btn").onclick = validateZip;
-
+//This function will validate the zipcode.  If valid, it will show the form
 function validateZip() {
-
 	clearErrors();
 	let isValid;
-
 	let zip = document.getElementById("zipCheck").value;
+
 	if (zip !== "") {
 		if (zip === "98030" || zip === "98031" || zip === "98032" || zip === "98042") {
 			let successZipCheck = document.getElementById("success-zipCheck");
 			successZipCheck.classList.remove("d-none");
 			//show form if valid zip
-			document.getElementById("form-main").classList.remove("d-none");
+			document.getElementById("form-fields").classList.remove("d-none");
 			isValid = true;
 		} else {
 			let errZipCheck = document.getElementById("err-zipCheck");
 			errZipCheck.classList.remove("d-none");
-			document.getElementById("form-main").classList.add("d-none");
+			document.getElementById("form-fields").classList.add("d-none");
 			isValid = false;
 		}
 	}
@@ -49,50 +44,11 @@ function validateZip() {
 	if(zip === "") {
 		let emptyZip = document.getElementById("empty-zipCheck");
 		emptyZip.classList.remove("d-none");
-		document.getElementById("form-main").classList.add("d-none");
+		document.getElementById("form-fields").classList.add("d-none");
 		isValid = false;
 	}
 
 	return isValid;
-}
-
-
-
-//validate form fields
-document.getElementById("form-main").onsubmit = validate;
-
-//form switch for test purposes
-document.getElementById("formOn").onclick = formOnOff;
-function formOnOff(){
-	let formSwitch1 = document.getElementById("formOn");
-	let resCheck = document.getElementById("resCheckDiv");
-	let form = document.getElementById("form-main");
-	console.log(formSwitch1);
-	if(formSwitch1.checked === true){
-		resCheck.classList.remove("d-none");
-	}else if(formSwitch1.checked === false) {
-		resCheck.classList.add("d-none");
-		form.classList.add("d-none");
-	}
-}
-
-function closeForm(){
-	let hours = new Date().getHours();
-	let day = new Date().getDay();
-	let form = document.getElementById("resCheckDiv");
-
-	if (day === 1 || day === 3){
-		if(hours < 13 || hours > 15){
-			form.classList.add("d-none");
-		}
-	} else if (day === 2){
-		if(hours < 9 || hours > 11){
-			form.classList.add("d-none");
-		}
-	}else {
-		form.classList.add("d-none");
-	}
-
 }
 
 // make all error messages invisible again
@@ -104,7 +60,7 @@ function clearErrors() {
 	}
 }
 
-
+// validate form fields
 function validate() {
 
 	clearErrors();
@@ -194,7 +150,6 @@ function validate() {
 		isValid = false;
 	}
 
-
 	return isValid;
 }
 
@@ -203,7 +158,6 @@ document.getElementById("utilities").onclick = utilDocs;
 document.getElementById("rent").onclick = rentDocs;
 document.getElementById("gas").onclick = gasDocs;
 document.getElementById("other").onclick = showOther;
-
 
 function utilDocs() {
 	let checkbox = document.getElementById("utilities");
