@@ -113,16 +113,6 @@
             </div>
             <div class="input-group mb-3 d-none" id="utilDocs">
                 <span class="text-danger">*Please bring in your current bill/final notice.</span>
-                <!--
-<div class="custom-file">
-    <input type="file" class="custom-file-input" id="utilitiesFile">
-    <label class="custom-file-label" for="utilitiesFile">Optional: Bring in or attach a picture of
-                                your current bill/final notice.</label>
-</div>
-<div class="input-group-append">
-    <span class="input-group-text">Upload</span>
-</div>
--->
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="rent" value="rent" name="services[]">
@@ -132,16 +122,6 @@
             </div>
             <div class="input-group mb-3 d-none" id="rentDocs">
                 <span class="text-danger">*Please bring in your eviction notice.</span>
-                <!--
-                <div class="custom-file">
-    <input type="file" class="custom-file-input" id="rentFile">
-    <label class="custom-file-label" for="rentFile">Optional: Bring in or attach a picture of
-                                your eviction notice.</label>
-</div>
-<div class="input-group-append">
-    <span class="input-group-text">Upload</span>
-</div>
--->
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gas" value="gas" name="services[]">
@@ -151,17 +131,7 @@
             </div>
             <div class="input-group mb-3 d-none" id="gasDocs">
                 <span class="text-danger">*Please bring in your current Washington State Driver's License.</span>
-                <!--
-                <div class="custom-file">
-    <input type="file" class="custom-file-input" id="gasFile">
-    <label class="custom-file-label" for="gasFile">Optional: Bring in or attach a picture of your
-                                Washington State Drivers License</label>
-</div>
-<div class="input-group-append">
-    <span class="input-group-text">Upload</span>
-</div>
--->
-            </div>
+						</div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="household" value="household" name="services[]">
                 <label class="form-check-label" for="household">
