@@ -5,7 +5,11 @@ $contact_link = '#contact';
 $getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $navbar_link = '#';
 $page_title = 'Kent Outreach Program';
-include('includes/header.html');
+
+//Login info
+include('includes/loginPath.php');
+
+include('includes/header.php');
 require('includes/dbcreds.php');
 ?>
 
@@ -203,5 +207,5 @@ require('includes/dbcreds.php');
 <!--   End of page specific content   -->
 
 <!--##################    FOOTER SECTION    ##################-->
-<?php include('includes/footer.html');?>
+<?php include('includes/footer.php');?>
 

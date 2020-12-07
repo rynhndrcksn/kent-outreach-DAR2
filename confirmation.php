@@ -8,7 +8,7 @@ $page_title = 'Kent Outreach Program';
 $page_specific_script = '';
 
 //Include files
-include('includes/header.html');
+include('includes/header.php');
 require('includes/dbcreds.php');
 
 //Get the form information, set to variables
@@ -122,6 +122,6 @@ else{
 
 <?php
 //Add footer
-include('includes/footer.html'); ?>
+include('includes/footer.php'); ?>
 
 

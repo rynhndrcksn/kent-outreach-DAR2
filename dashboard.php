@@ -5,8 +5,19 @@ $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Admin Portal';
+
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+
+    //Store the page that I'm currently on in the session
+    $_SESSION['page'] = $_SERVER['SCRIPT_URI'];
+
+    //Redirect to login
+    header("location: adminLogin.php");
+}
+
 //Add Navbar
-include("includes/header.html");
+include("includes/header.php");
 //Add Database info
 require("includes/dbcreds.php");
 ?>
@@ -112,7 +123,7 @@ require("includes/dbcreds.php");
     </div>
 <?php
 //Add Footer
-include("includes/footer.html")?>
+include("includes/footer.php")?>
 <!-- add datatables.net js -->
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script>

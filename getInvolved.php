@@ -5,7 +5,11 @@ $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $getInvolved_link = '#';
 $page_title = 'Get Involved';
-include('includes/header.html'); ?>
+
+//Login info
+include('includes/loginPath.php');
+
+include('includes/header.php'); ?>
 
     <!--   Beginning of page specific content   -->
 
@@ -150,4 +154,4 @@ include('includes/header.html'); ?>
     <!--   End of page specific content   -->
 
     <!--##################    FOOTER SECTION    ##################-->
-<?php include('includes/footer.html'); ?>
+<?php include('includes/footer.php'); ?>
