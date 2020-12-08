@@ -70,7 +70,7 @@ else{
 
 <!--##################    FORM SUBMISSION PAGE    ##################-->
 
-<div class="container acknowledge-div pb-5">
+<div class="container acknowledge-div pb-5" id="subitted">
 
     <!--  Header  -->
     <div class="content-wrap pt-5">

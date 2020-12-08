@@ -147,6 +147,9 @@ input.submit:hover {
     margin-right: auto;!important;
 }
 
+.container#submitted {
+    height: 30em;
+}
 
 
 
