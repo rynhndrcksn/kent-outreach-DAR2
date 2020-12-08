@@ -39,7 +39,7 @@ form.login {
     background-color: #a10909!important;
 }
 
-.content-wrap {
-    padding-top: 5em;
-    padding-bottom: 8em;
+.content-wrap#adminlogin {
+    padding-top: 7em;
 }
+

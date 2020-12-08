@@ -28,7 +28,7 @@ require('/home2/dargreen/includes/dbcreds.php');
 include("includes/functions.php");
 
 ?>
-    <div class="container">
+    <div class="container pb-3">
         <div class="content-wrap pt-5">
             <div class="content-wrap  border text-center">
                 <h1 class="font-weight-bold text-center pt-4">Admin Portal</h1><br>
@@ -36,7 +36,7 @@ include("includes/functions.php");
         </div>
 
         <!--  DASHBOARD NAVBAR  -->
-        <ul class="nav nav-pills mb-3 bg-secondary" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-3 mt-3 bg-secondary" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Requests</a>
             </li>
