@@ -72,6 +72,12 @@ h1.text-block {
     background-position: center;
 }
 
+@media(max-width: 488px) {
+    h1.text-block {
+        height: 93vh;
+        line-height: 67px;
+    }
+}
 
 
 /***** Services Section Styles ******/
