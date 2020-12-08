@@ -50,7 +50,7 @@ include('includes/header.php');
 
 <!--##################    ADMIN LOGIN SECTION    ##################-->
 
-<div class="content-wrap pt-5 pb-5">
+<div class="content-wrap">
     <div class="container border p-10">
 
         <form class="login" action="#" method="post">
