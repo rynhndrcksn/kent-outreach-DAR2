@@ -9,7 +9,7 @@ $page_specific_script = '';
 
 //Include files
 include('includes/header.php');
-require('includes/dbcreds.php');
+require('/home2/dargreen/includes/dbcreds.php');
 require ('includes/validation.php');
 
 /*

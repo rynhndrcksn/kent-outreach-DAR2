@@ -13,7 +13,7 @@ include('includes/loginPath.php');
 
 //Include files
 include('includes/header.php');
-require('includes/dbcreds.php');
+require('/home2/dargreen/includes/dbcreds.php');
 
 //Get the form information and assign to variables
 $fname = $_POST['fname'];

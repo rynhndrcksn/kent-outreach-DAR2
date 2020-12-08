@@ -23,7 +23,7 @@ if (!isset($_SESSION['loggedin'])) {
 //Add Navbar
 include("includes/header.php");
 //Add Database info
-require('includes/dbcreds.php');
+require('/home2/dargreen/includes/dbcreds.php');
 //Add functions
 include("includes/functions.php");
 

@@ -11,7 +11,7 @@ $page_specific_script = '<script src="scripts/form.js"></script>';
 include('includes/loginPath.php');
 
 include('includes/header.php');
-require('includes/dbcreds.php');
+require('/home2/dargreen/includes/dbcreds.php');
 ?>
 
 <!--   Beginning of page specific content   -->

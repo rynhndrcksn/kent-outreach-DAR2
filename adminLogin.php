@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = strtolower(trim($_POST['password']));
 
     //If they are correct
-    require('includes/logincredsoutreach.php');
+    require('/home2/dargreen/includes/logincredsoutreach.php');
 
     if($username == $adminUser && $password == $adminPassword) {
 
