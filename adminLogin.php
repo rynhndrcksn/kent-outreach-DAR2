@@ -42,6 +42,7 @@ $contact_link = 'http://dar2.greenriverdev.com/index.php#contact';
 $navbar_link = 'http://dar2.greenriverdev.com/index.php';
 $getInvolved_link = 'http://dar2.greenriverdev.com/getInvolved.php';
 $page_title = 'Admin Portal';
+$page_specific_script = '';
 include('includes/header.php'); 
 
 ?>
