@@ -62,7 +62,7 @@ include("includes/functions.php");
                 <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
                 <!--    SERVICE REQUEST TABLE    -->
-                <table id="requests-table" class="display" data-order='[[0, "DESC"]]'>
+                <table id="requests-table" class="display" data-order='[[1, "ASC"]]'>
                     <thead>
                     <tr>
                         <th>Contacted:</th>
@@ -74,6 +74,7 @@ include("includes/functions.php");
                         <th>Services:</th>
                         <th>Other:</th>
                         <th>Comments:</th>
+											<!-- TODO: add request ID, add d-none, and sort by that one. -->
                     </tr>
                     </thead>
                     <tbody>
